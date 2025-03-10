@@ -1,0 +1,88 @@
+/* Page générale */
+.doctors-page {
+    padding-bottom: 40px;
+    background: linear-gradient(to right, #e0e0e0, #7b7b9b);
+
+  }
+  
+  /* Conteneur principal */
+  .doctors-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  /* Titre principal */
+  .title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Sous-titre */
+  .subtitle {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+  }
+  
+  /* Section titre */
+  .section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Grille des docteurs */
+  .doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Carte du docteur */
+  .doctor-card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Image du docteur */
+  .doctor-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  /* Info du docteur */
+  .doctor-info {
+    margin-top: 10px;
+  }
+  
+  .available {
+    color: green;
+    font-weight: bold;
+  }
+  
+  /* Bouton "more" */
+  .more-btn {
+    background: #6c63ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+  }
+  
+  .more-btn:hover {
+    background: #534bdb;
+  }
+  

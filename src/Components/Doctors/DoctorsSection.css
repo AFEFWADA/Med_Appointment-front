@@ -1,56 +1,83 @@
 .doctors-section {
-    text-align: center;
-    padding: 20px;
-  }
-  
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f4f5fc; /* Couleur de fond douce */
+  max-width: 80%; /* Réduction de la largeur */
+  margin: auto; /* Centrage */
+  border-radius: 15px; /* Coins arrondis */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  margin-top: 30px;
+}
+
+
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 5 colonnes par ligne */
+  gap: 20px;
+  justify-content: center;
+}
+
+.doctor-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background: linear-gradient(to right, #e0e0e0, #a5a5b9);
+
+}
+
+.doctor-image {
+  width: 100%;
+  max-width: 120px; /* Réduction de la taille */
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.availability {
+  display: block;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.available {
+  color: green;
+}
+
+.not-available {
+  color: red;
+}
+
+.more-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: rgb(115, 104, 162);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.more-button:hover {
+  background: rgb(100, 90, 140);
+}
+
+
+@media (max-width: 1200px) {
   .doctors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    justify-content: center;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur écran moyen */
   }
-  
-  .doctor-card {
-    background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+}
+
+@media (max-width: 800px) {
+  .doctors-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur écran plus petit */
   }
-  
-  .doctor-image {
-    width: 100%;
-    max-width: 150px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+}
+
+@media (max-width: 500px) {
+  .doctors-grid {
+    grid-template-columns: repeat(1, 1fr); /* 1 colonne sur mobile */
   }
-  
-  .availability {
-    display: block;
-    font-weight: bold;
-    margin-top: 5px;
-  }
-  
-  .available {
-    color: green;
-  }
-  
-  .not-available {
-    color: red;
-  }
-  
-  .more-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: rgb(115, 104, 162);
-    color: white;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .more-button:hover {
-    background: rgb(100, 90, 140);
-  }
-  
+}

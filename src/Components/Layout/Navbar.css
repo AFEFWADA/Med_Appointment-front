@@ -1,22 +1,28 @@
 .navbar {
-  background: linear-gradient(to right, #e0e0e0, #7b7b9b);
+  background: linear-gradient(to right, #BDBED8, #525498);
   padding: 10px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .logo {
   display: flex;
-  flex-direction: column;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1.2;
+  align-items: center; /* Aligner l'image et le texte sur la même ligne */
+  gap: 10px; /* Ajouter un petit espace entre l'image et le texte */
+}
+
+.image img {
+  width: 40px; /* Réduire la taille de l'image */
+  height: 40px;
+  object-fit: contain;
 }
 
 .health {
   color: #5a4f8f;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .care {
@@ -26,10 +32,11 @@
 
 .nav-links {
   display: flex;
-  gap: 30px; 
+  gap: 30px;
   background: linear-gradient(to right, #8b8181, #7b7b9b);
   padding: 10px 20px;
-  border-radius: 20px;}
+  border-radius: 20px;
+}
 
 .nav-links a {
   text-decoration: none;
@@ -40,10 +47,8 @@
 }
 
 .nav-links a:hover {
-  color: #5a4f8f; /* Change juste la couleur au survol */
+  color: #5a4f8f;
 }
-
-
 
 .login-btn {
   background: rgb(115, 104, 162);

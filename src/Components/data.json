@@ -1,58 +1,59 @@
+
 [
     {
       "id": 1,
       "name": "Dr. Richard James",
       "specialty": "General Physician",
-      "image": "/doctor1.jpg",
+      "image": "/doc1.png",
       "available": true
     },
     {
       "id": 2,
       "name": "Dr. Sarah Johnson",
       "specialty": "Cardiologist",
-      "image": "/doctor2.jpg",
+      "image": "/doc2.png",
       "available": true
     },
     {
       "id": 3,
       "name": "Dr. Emily Davis",
       "specialty": "Pediatrician",
-      "image": "/doctor3.jpg",
+      "image": "/doc3.png",
       "available": false
     },
     {
       "id": 4,
       "name": "Dr. Michael Smith",
       "specialty": "Orthopedic Surgeon",
-      "image": "/doctor4.jpg",
+      "image": "/doc4.png",
       "available": true
     },
     {
       "id": 5,
       "name": "Dr. Sophia Martinez",
       "specialty": "Dermatologist",
-      "image": "/doctor5.jpg",
+      "image": "/doc5.png",
       "available": false
     },
     {
       "id": 6,
       "name": "Dr. Daniel Brown",
       "specialty": "Neurologist",
-      "image": "/doctor6.jpg",
+      "image": "/doc6.png",
       "available": true
     },
     {
       "id": 7,
       "name": "Dr. Olivia Wilson",
       "specialty": "Ophthalmologist",
-      "image": "/doctor7.jpg",
+      "image": "/doc7.png",
       "available": true
     },
     {
       "id": 8,
       "name": "Dr. William Taylor",
       "specialty": "Dentist",
-      "image": "/doctor8.jpg",
+      "image": "/doc8.png",
       "available": true
     }
   ]
