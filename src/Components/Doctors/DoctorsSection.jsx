@@ -6,6 +6,8 @@ import doctor3 from "../assets/assets_frontend/doc3.png";
 import doctor4 from "../assets/assets_frontend/doc4.png";
 import doctor5 from "../assets/assets_frontend/doc5.png";
 import doctor6 from "../assets/assets_frontend/doc6.png";
+import doctor7 from "../assets/assets_frontend/doc7.png";
+import doctor8 from "../assets/assets_frontend/doc8.png";
 import { useNavigate } from "react-router-dom";
 
 const doctorsData = [
@@ -52,17 +54,17 @@ const doctorsData = [
     available: false,
   },
   {
-    id: 5,
+    id: 7,
     name: "Dr. David Brown",
     specialty: "Gynecologist",
-    image: doctor5,
+    image: doctor7,
     available: true,
   },
   {
-    id: 6,
+    id: 8,
     name: "Dr. Jessica Lee",
     specialty: "Gastroenterologist",
-    image: doctor6,
+    image: doctor8,
     available: false,
   },
 ];

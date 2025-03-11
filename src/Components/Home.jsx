@@ -3,6 +3,9 @@ import Navbar from "./Layout/Navbar";
 import "./Home.css"; 
 import irm from "./assets/irm.jpeg";
 import DoctorsSection from "./Doctors/DoctorsSection";
+import Departments from "./Pages/Department";
+import QualityHealth from "./Pages/QualityHealth";
+import Footer from "./Layout/Footer";
 
 const Home = () => {
   return (
@@ -32,9 +35,20 @@ const Home = () => {
       </div>
 
       <div className="doctoe-section">
-
         <DoctorsSection />
       </div>
+
+      <div className="departement">
+        <Departments />
+      </div>
+
+      <div className="quality-section">
+       <QualityHealth />
+      </div>
+
+
+      <Footer />
+
     </div>
   );
 };

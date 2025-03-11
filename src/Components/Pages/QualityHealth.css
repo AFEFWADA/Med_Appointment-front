@@ -1,0 +1,48 @@
+.quality-health {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f4f5fc; /* Couleur de fond douce */
+    max-width: 80%; /* Réduction de la largeur */
+    margin: auto; /* Centrage */
+    border-radius: 15px; /* Coins arrondis */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    margin-top: 30px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1f2a40;
+  }
+  
+  .subtitle {
+    color: #666;
+    margin-bottom: 40px;
+  }
+  
+  .quality-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .icon img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  

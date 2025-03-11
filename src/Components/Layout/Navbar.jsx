@@ -1,9 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink ,useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../assets/logo.png";
 
 const Navbar = () => {
+    const navigate = useNavigate();
+  
   return (
     <nav className="navbar">
       <div className="logo">
@@ -23,7 +25,7 @@ const Navbar = () => {
         <NavLink to="/about" className="nav-btn">About Us</NavLink>
       </div>
 
-      <button className="login-btn">Login now</button>
+      <button className="login-btn" onClick={() => navigate("/login")}>Login now</button>
     </nav>
   );
 };

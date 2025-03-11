@@ -1,0 +1,76 @@
+.footer {
+    background: linear-gradient(to left, #e0e0e0, #7b7b9b);
+    color: rgb(93, 74, 133);
+    padding: 30px 20px;
+    margin-top: 30px;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .footer-about {
+    max-width: 300px;
+  }
+  
+  .footer-about .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .footer-about p {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #000000;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 1.2rem;
+  }
+  
+  .footer-departments h3,
+  .footer-availability h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .footer-departments ul,
+  .footer-availability ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-departments li,
+  .footer-availability li {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #000000;
+  }
+  
+  .footer-availability span {
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    font-size: 14px;
+    color: #000000;
+  }
+  
+  .footer-bottom a {
+    color: #1e90ff;
+    text-decoration: none;
+  }
+  
+  .footer-bottom a:hover {
+    text-decoration: underline;
+  }
+  
