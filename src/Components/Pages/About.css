@@ -77,6 +77,8 @@
 .secondary-buttons {
     display: flex;
     gap: 10px;
+    flex-direction: column;  
+
 }
 
 .btn.secondary {
@@ -152,7 +154,7 @@
     align-items: flex-start; 
 }
 
-.btn.secondary {
+  .btn .secondary {
     width: 100%;  
 }
 
