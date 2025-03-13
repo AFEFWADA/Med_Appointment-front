@@ -1,22 +1,29 @@
 /* About Section Container */
 .about-container {
+    display: flex;
+    flex-direction: row; /* Assure que le texte est à gauche et l'image à droite */
+    justify-content: space-between;
+    align-items: center;
     min-height: 100vh;
     background: linear-gradient(to right, #e0e0e0, #7b7b9b);
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 50px 10%;
+    gap: 50px;
 }
 
-@media (min-width: 1024px) {
-    .about-container {
-        flex-direction: row;
-    }
+/* About Content */
+.about-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 /* Left Side - Text Content */
 .about-text {
+    flex: 1;
     max-width: 500px;
+    text-align: left;
 }
 
 .about-subtitle {
@@ -48,33 +55,38 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    align-items: center;
-    width: 100%;
+    align-items: flex-start;
 }
 
-/* The primary button stays at the top */
+/* Primary Button */
 .btn.primary {
     background-color: #7286b3;
     color: white;
-    width: 50%;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
 }
 
 .btn.primary:hover {
     background-color: #adb1bd;
 }
 
-/* Secondary buttons are stacked below */
+/* Secondary Buttons */
 .secondary-buttons {
     display: flex;
-    flex-direction: column;
     gap: 10px;
-    width: 50%;
 }
 
 .btn.secondary {
     background-color: #d1d5db;
     color: #1f2937;
-    width: 100%;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
 }
 
 .btn.secondary:hover {
@@ -83,15 +95,17 @@
 
 /* Right Side - Images */
 .about-images {
+    flex: 1;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
+    max-width: 500px;
 }
 
 .doctor-bg {
-    width: 320px;
+    width: 100%;
+    max-width: 350px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -108,12 +122,55 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 768px) {
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-text {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .about-buttons {
+        align-items: center;
+    }
+
+ /* Secondary buttons stacked below each other */
+.secondary-buttons {
+    display: flex;
+    flex-direction: column;  
+    gap: 10px;
+    width: 100%; 
+    align-items: flex-start; 
+}
+
+.btn.secondary {
+    width: 100%;  
+}
+
+
+.btn.secondary:hover {
+    background-color: #9ca3af;
+}
+
+    .about-images {
+        max-width: 100%;
+    }
+
     .doctor-fg {
         width: 140px;
         right: -10px;
     }
 }
+
 
 
 /* Gallery Section */

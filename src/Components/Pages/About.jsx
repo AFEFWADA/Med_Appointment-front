@@ -37,7 +37,6 @@ const About = () => {
             </p>
 
             {/* Buttons */}
-            {/* Buttons */}
             <div className="about-buttons">
               <button className="btn primary">Find Doctors →</button>
   
@@ -80,9 +79,10 @@ const About = () => {
 </section>
 
 
-  <secction>
+<section>
     <Appointment />
-  </secction>
+  </section>
+    
  
      <Footer/>
     </>
