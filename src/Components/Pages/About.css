@@ -1,0 +1,197 @@
+/* About Section Container */
+.about-container {
+    min-height: 100vh;
+    background: linear-gradient(to right, #e0e0e0, #7b7b9b);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .about-container {
+        flex-direction: row;
+    }
+}
+
+/* Left Side - Text Content */
+.about-text {
+    max-width: 500px;
+}
+
+.about-subtitle {
+    color: #5a4f8f;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #111827;
+    margin-top: 10px;
+}
+
+.highlight {
+    color: #728abe;
+}
+
+.about-description {
+    color: #4b5563;
+    margin-top: 1rem;
+}
+
+/* Buttons */
+.about-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+}
+
+/* The primary button stays at the top */
+.btn.primary {
+    background-color: #7286b3;
+    color: white;
+    width: 50%;
+}
+
+.btn.primary:hover {
+    background-color: #adb1bd;
+}
+
+/* Secondary buttons are stacked below */
+.secondary-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+}
+
+.btn.secondary {
+    background-color: #d1d5db;
+    color: #1f2937;
+    width: 100%;
+}
+
+.btn.secondary:hover {
+    background-color: #9ca3af;
+}
+
+/* Right Side - Images */
+.about-images {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.doctor-bg {
+    width: 320px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.doctor-fg {
+    position: absolute;
+    right: -20px;
+    top: 30px;
+    width: 180px;
+    height: auto;
+    border-radius: 10px;
+    border: 4px solid white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .doctor-fg {
+        width: 140px;
+        right: -10px;
+    }
+}
+
+
+/* Gallery Section */
+.gallery-container {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(to right, #e0e0e0, #7b7b9b);
+
+}
+
+.gallery-subtitle {
+    color: #5a4f8f;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.gallery-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 20px;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.gallery-item {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+/* Image Sizes */
+.gallery-item.large {
+    grid-column: span 2;
+}
+
+.gallery-item.small {
+    grid-column: span 1;
+}
+.gallery-item.doc2 {
+    position: relative;
+    top: -30px; 
+}
+.gallery-item.doc4 {
+    position: relative;
+    top: 40px; 
+}
+
+.gallery-item.doc6 {
+    position: relative;
+    top: -20px; 
+}
+.gallery-item.medium {
+    grid-column: span 2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-item.large {
+        grid-column: span 2;
+    }
+}

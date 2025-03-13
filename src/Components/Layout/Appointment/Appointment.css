@@ -1,0 +1,110 @@
+/* Conteneur principal */
+.appointment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f9fbff;
+    padding: 40px 20px;
+    background: linear-gradient(to right, #e0e0e0, #7b7b9b);
+    height: auto;
+
+}
+
+/* Contenu global */
+.appointment-content {
+    display: flex;
+    width: 90%;
+    max-width: 1100px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Partie gauche - Image */
+.appointment-image {
+    flex: 1;
+    background: #e9effd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.appointment-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Partie droite - Formulaire */
+.appointment-form-container {
+    flex: 1;
+    padding: 50px;
+    background: #f8fbff;
+}
+
+.appointment-subtitle {
+    color: #2b50aa;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.appointment-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 20px;
+}
+
+/* Champs de formulaire */
+.appointment-form .form-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.appointment-form input,
+.appointment-form select,
+.appointment-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: white;
+}
+
+/* Zone de texte */
+.appointment-form textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Bouton */
+.btn.primary {
+    background: #8989af;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.btn.primary:hover {
+    background: #424483;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .appointment-content {
+        flex-direction: column;
+    }
+
+    .appointment-image {
+        height: 300px;
+    }
+}
