@@ -6,6 +6,7 @@ import Contact from './Components/Pages/Contact';
 import Doctors from './Components/Pages/Doctors';
 import Login from './Components/Pages/Login';
 import About from './Components/Pages/About';
+import DashboardAdmin from './Components/Dashboards/Admin/DashboardAdmin';
 function App() {
   return (
     <BrowserRouter> 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/doctors" element={<Doctors />} />
         <Route path="/login" element={<Login />} />
         <Route path="/About" element={<About />} />
+        <Route path="/dashboard-admin" element={<DashboardAdmin />} />
       </Routes>
     </BrowserRouter>
   );

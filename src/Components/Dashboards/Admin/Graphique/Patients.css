@@ -1,0 +1,102 @@
+.table-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .show-all {
+    color: #4F46E5;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  th {
+    color: #888;
+  }
+  
+  .patient-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .patient-info img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  .tag {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .non-urgent {
+    background: #E0F7FA;
+    color: #00796B;
+  }
+  
+  .emergency {
+    background: #FFEBEE;
+    color: #D32F2F;
+  }
+  
+  .out-patient {
+    background: #E0E0E0;
+    color: #555;
+  }
+  
+  .options {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .btn-prev, .btn-next {
+    background: #E0E0E0;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .current-page {
+    background: #4F46E5;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 5px;
+  }
+  

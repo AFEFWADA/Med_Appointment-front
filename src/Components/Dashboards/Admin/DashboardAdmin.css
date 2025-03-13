@@ -1,0 +1,166 @@
+.dashboard {
+    display: flex;
+    height: 100vh;
+    background-color: #f4f7fc;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #1f2a40;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 250px; /* Ensures content starts after the sidebar */
+    overflow-y: auto;
+    height: 100vh;
+}
+
+/* Spacing for sections */
+.welcome-card,
+.stats,
+.charts,
+.tables,
+.recent-patients {
+    margin-top: 20px;
+}
+
+/* Welcome Card */
+.welcome-card {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Highlighted Text */
+.welcome-card .highlight {
+    font-weight: bold;
+    color: #ffeb3b;
+}
+
+/* Stats Section */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4caf50;
+}
+
+/* Positive & Negative Change */
+.change {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.positive {
+    color: #4caf50;
+}
+
+.negative {
+    color: #f44336;
+}
+
+/* Charts & Tables Section */
+.charts,
+.tables {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+
+}
+
+
+
+
+/* Top Departments - Small */
+.top-departments {
+    flex: 1; 
+    min-width: 150px;
+    max-width: 400px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Upcoming Appointments - Larger */
+.upcoming-appointments {
+    flex: 3; 
+    min-width: 400px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .tables {
+        flex-wrap: wrap;
+    }
+
+    .top-departments {
+        min-width: 120px;
+        max-width: 200px;
+    }
+
+    .upcoming-appointments {
+        flex: 2; /* Toujours plus grand */
+        min-width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .tables {
+        flex-direction: column;
+    }
+
+    .top-departments,
+    .upcoming-appointments {
+        width: 100%;
+    }
+}
+
+
+
+/* Chart & Table Cards */
+.chart-card,
+.table-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+/* Recent Patients */
+.recent-patients {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
