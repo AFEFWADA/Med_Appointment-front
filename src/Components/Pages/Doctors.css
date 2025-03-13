@@ -1,101 +1,129 @@
 /* Page générale */
 .doctors-page {
-    padding-bottom: 40px;
-    background: linear-gradient(to right, #e0e0e0, #7b7b9b);
+  padding-bottom: 40px;
+  background: linear-gradient(to right, #e0e0e0, #7b7b9b);
+}
 
-  }
-  
-  /* Conteneur principal */
-  .doctors-container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 40px 20px;
-    text-align: center;
-  }
-  
-  /* Titre principal */
-  .title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  /* Sous-titre */
-  .subtitle {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 30px;
-  }
-  
-  /* Section titre */
-  .section-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  /* Grille des docteurs */
-  .doctors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  /* Carte du docteur */
-  .doctor-card {
-    background: white;
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Image du docteur */
-  .doctor-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
-  /* Info du docteur */
-  .doctor-info {
-    margin-top: 10px;
-  }
-  
-  .available {
-    color: green;
-    font-weight: bold;
-  }
-  
-  /* Bouton "more" */
-  .more-btn {
-    background: #6c63ff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background 0.3s ease;
-  }
-  
-  .more-btn:hover {
-    background: #534bdb;
-  }
+/* Conteneur principal */
+.doctors-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
 
-  /* Barre de recherche */
+/* Titre principal */
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Sous-titre */
+.subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Section titre */
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Grille des docteurs */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Carte du docteur */
+.doctor-card {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Image du docteur */
+.doctor-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Info du docteur */
+/* Info du docteur */
+.doctor-info {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre le texte sous l'image */
+  text-align: center;
+}
+
+.doctor-info h4 {
+  margin: 5px 0; /* Ajoute un petit espace entre le nom et la spécialité */
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.doctor-info p {
+  font-size: 16px;
+  color: #666;
+}
+
+.available {
+  color: green;
+  font-weight: bold;
+}
+
+/* Bouton "more" */
+.more-btn {
+  background: #6c63ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+.more-btn:hover {
+  background: #534bdb;
+}
+
+/* Barre de recherche */
 .search-bar {
   width: 100%;
   max-width: 400px;
-  padding: 10px;
+  padding: 12px 15px;
   margin: 20px auto;
   display: block;
-  border: 1px solid #ccc;
-  border-radius: 15px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
   font-size: 16px;
+  outline: none;
+  transition: 0.3s ease-in-out;
+}
+
+.search-bar:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
 }
 
 /* Aucun résultat trouvé */
@@ -106,4 +134,25 @@
   margin-top: 20px;
 }
 
-  
+/* Responsive */
+@media (max-width: 768px) {
+  .doctors-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .doctor-image {
+      height: 140px;
+  }
+
+  .title {
+      font-size: 24px;
+  }
+
+  .subtitle {
+      font-size: 14px;
+  }
+
+  .search-bar {
+      max-width: 300px;
+  }
+}

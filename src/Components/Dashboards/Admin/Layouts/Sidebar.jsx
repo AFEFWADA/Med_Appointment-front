@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { 
   FaTachometerAlt, FaUserMd, FaUsers, FaClipboardList, 
-  FaCalendarCheck, FaClock, FaBuilding, FaWallet, FaComments, FaAngleDown 
+  FaCalendarCheck, FaClock, FaBuilding,  FaAngleDown 
 } from "react-icons/fa";
 import "./Sidebar.css";
 
@@ -50,9 +50,7 @@ const Sidebar = () => {
         <li><FaCalendarCheck className="icon" /> Appointments</li>
         <li><FaClock className="icon" /> Doctor Schedule</li>
         <li><FaBuilding className="icon" /> Departments</li>
-        <li><FaWallet className="icon" /> Accounts</li>
-        <li><FaClipboardList className="icon" /> Payroll</li>
-        <li><FaComments className="icon" /> Chat</li>
+        
       </ul>
     </div>
   );

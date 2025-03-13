@@ -24,7 +24,6 @@ const doctors = [
 const Doctors = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Filtrer les docteurs en fonction de la recherche
   const filteredDoctors = doctors.filter((doctor) =>
     doctor.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     doctor.specialty.toLowerCase().includes(searchTerm.toLowerCase())
