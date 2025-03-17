@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import { 
   FaTachometerAlt, FaUserMd, FaUsers, FaClipboardList, 
-  FaCalendarCheck, FaClock, FaBuilding,  FaAngleDown 
+  FaCalendarCheck, FaClock, FaBuilding, FaAngleDown 
 } from "react-icons/fa";
 import "./Sidebar.css";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   const [openSubmenu, setOpenSubmenu] = useState(null);
 
   const toggleSubmenu = (menu) => {
@@ -16,7 +18,9 @@ const Sidebar = () => {
     <div className="sidebar">
       <h2>Admin</h2>
       <ul>
-        <li className="active"><FaTachometerAlt className="icon" /> Dashboard</li>
+        <li className="active" onClick={() => navigate("/dashboard_admin")}>
+          <FaTachometerAlt className="icon" /> Dashboard
+        </li>
 
         {/* Patients Dropdown */}
         <li className={`submenu ${openSubmenu === "patients" ? "open" : ""}`}>
@@ -25,10 +29,8 @@ const Sidebar = () => {
             <FaAngleDown className={`arrow ${openSubmenu === "patients" ? "rotated" : ""}`} />
           </span>
           <ul className="submenu-items">
-            <li>Patients List</li>
-            <li>Add Patients</li>
-            <li>Edit Patients</li>
-            <li>Patients Profile</li>
+            <li onClick={() => navigate("/patients-list")}>Patients List</li>
+            
           </ul>
         </li>
 
@@ -39,18 +41,17 @@ const Sidebar = () => {
             <FaAngleDown className={`arrow ${openSubmenu === "doctors" ? "rotated" : ""}`} />
           </span>
           <ul className="submenu-items">
-            <li>Doctors List</li>
-            <li>Add Doctor</li>
-            <li>Edit Doctor</li>
-            <li>Doctor Profile</li>
+            <li onClick={() => navigate("/doctors-list")}>Doctors List</li>
+            <li onClick={() => navigate("/add-doctor")}>Add Doctor</li>
+            <li onClick={() => navigate("/doctors-schedule")}>Doctors Schedule</li>
+
           </ul>
         </li>
 
-        <li><FaClipboardList className="icon" /> Staff</li>
-        <li><FaCalendarCheck className="icon" /> Appointments</li>
-        <li><FaClock className="icon" /> Doctor Schedule</li>
-        <li><FaBuilding className="icon" /> Departments</li>
-        
+        <li onClick={() => navigate("/staff")}><FaClipboardList className="icon" /> Staff</li>
+        <li onClick={() => navigate("/appointments")}><FaCalendarCheck className="icon" /> Appointments</li>
+        <li onClick={() => navigate("/schedule")}><FaClock className="icon" /> Doctor Schedule</li>
+        <li onClick={() => navigate("/departments")}><FaBuilding className="icon" /> Departments</li>
       </ul>
     </div>
   );

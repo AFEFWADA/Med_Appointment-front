@@ -7,8 +7,23 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Liste des pages où le bouton Login doit apparaître
+  // Pages où le bouton Login doit apparaître
   const showLoginButton = ["/", "/about", "/doctors", "/contact"].includes(location.pathname);
+
+  // Pages où le bouton Logout doit apparaître
+  const showLogoutButton = !showLoginButton; 
+
+  const handleLogout = () => {
+    // Suppression du token de session
+    localStorage.removeItem("token");  
+  
+    // Empêcher le retour en arrière
+    window.history.replaceState(null, "", "/login");
+  
+    // Redirection vers la page de login
+    navigate("/login", { replace: true });
+  };
+  
 
   return (
     <nav className="navbar">
@@ -32,6 +47,11 @@ const Navbar = () => {
       {/* Affiche le bouton Login uniquement sur certaines pages */}
       {showLoginButton && (
         <button className="login-btn" onClick={() => navigate("/login")}>Login now</button>
+      )}
+
+      {/* Affiche le bouton Logout uniquement sur les autres pages */}
+      {showLogoutButton && (
+        <button className="login-btn" onClick={handleLogout}>Logout</button>
       )}
     </nav>
   );

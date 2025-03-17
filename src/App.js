@@ -7,6 +7,11 @@ import Doctors from './Components/Pages/Doctors';
 import Login from './Components/Pages/Login';
 import About from './Components/Pages/About';
 import DashboardAdmin from './Components/Dashboards/Admin/DashboardAdmin';
+import PatientsList from './Components/Dashboards/Admin/AdminPages/PatientsList';
+import DoctorsList from './Components/Dashboards/Admin/AdminPages/DoctorsList';
+import AddDoctor from './Components/Dashboards/Admin/AdminPages/AddDoctor';
+import DoctorSchedule from './Components/Dashboards/Admin/AdminPages/DoctorSchedule';
+import AppointmentsList from './Components/Dashboards/Admin/AdminPages/AppointmentsList';
 function App() {
   return (
     <BrowserRouter> 
@@ -17,6 +22,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/About" element={<About />} />
         <Route path="/dashboard-admin" element={<DashboardAdmin />} />
+        <Route path="/patients-list" element={<PatientsList />} />
+        <Route path="/doctors-list" element={<DoctorsList />} />
+        <Route path="/add-doctor" element={<AddDoctor />} />
+        <Route path="/doctors-schedule" element={<DoctorSchedule />} />
+        <Route path="/appointments" element={<AppointmentsList />} />
       </Routes>
     </BrowserRouter>
   );
