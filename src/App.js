@@ -12,6 +12,9 @@ import DoctorsList from './Components/Dashboards/Admin/AdminPages/DoctorsList';
 import AddDoctor from './Components/Dashboards/Admin/AdminPages/AddDoctor';
 import DoctorSchedule from './Components/Dashboards/Admin/AdminPages/DoctorSchedule';
 import AppointmentsList from './Components/Dashboards/Admin/AdminPages/AppointmentsList';
+import DashboardPatient from './Components/Dashboards/Patient/DashboardPatient';
+import AppointmentForm from './Components/Dashboards/Patient/PatientPages/AppointmentForm';
+import Doctorlists from './Components/Dashboards/Patient/PatientPages/Doctorlists';
 function App() {
   return (
     <BrowserRouter> 
@@ -21,12 +24,18 @@ function App() {
         <Route path="/doctors" element={<Doctors />} />
         <Route path="/login" element={<Login />} />
         <Route path="/About" element={<About />} />
+
         <Route path="/dashboard-admin" element={<DashboardAdmin />} />
         <Route path="/patients-list" element={<PatientsList />} />
         <Route path="/doctors-list" element={<DoctorsList />} />
         <Route path="/add-doctor" element={<AddDoctor />} />
         <Route path="/doctors-schedule" element={<DoctorSchedule />} />
         <Route path="/appointments" element={<AppointmentsList />} />
+
+        <Route path="/dashboard-patient" element={<DashboardPatient />} />
+        <Route path="/rendez-vous" element={<AppointmentForm />} />
+        <Route path="/doctors-list-patient" element={<Doctorlists />} /> 
+
       </Routes>
     </BrowserRouter>
   );

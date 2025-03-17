@@ -1,0 +1,44 @@
+.dashboard {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #1f2a40;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 250px; /* Ensures content starts after the sidebar */
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.calendar-container {
+    width: 60%;  /* Ajuste la largeur selon tes besoins */
+    max-width: 600px;  /* Définit une largeur maximale */
+    margin: 0 auto;  /* Centre le calendrier */
+    padding: 10px;
+}
+
+.fc {
+    font-size: 0.85rem;  /* Réduit la taille du texte */
+}
+
+
+.notifications {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}

@@ -1,0 +1,63 @@
+.medical-history {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+  
+  .header a {
+    color: #374af3;
+    text-decoration: none;
+  }
+  
+  .table {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .table th {
+    font-weight: bold;
+  }
+  
+  .doctor-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .reschedule-btn {
+    background: #f4f7fc;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #374af3;
+    cursor: pointer;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .page-number {
+    background: #374af3;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+  .btn{
+    background: #6d72a2;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }

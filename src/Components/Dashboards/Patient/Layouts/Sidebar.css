@@ -1,0 +1,91 @@
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(to right, #b1aeae, #7b7b9b);
+    color: white;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .sidebar h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #ccc;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .sidebar li:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .icon {
+    margin-right: 10px;
+  }
+  
+  /* Active Link */
+  .sidebar .active {
+    background: #374b75;
+    border-radius: 5px;
+  }
+  
+  /* Submenu */
+  .submenu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .submenu span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px;
+  }
+  
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+  
+  .rotated {
+    transform: rotate(180deg);
+  }
+  
+  .submenu-items {
+    list-style: none;
+    padding-left: 20px;
+    display: none;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 5px;
+    border-radius: 5px;
+    transition: max-height 0.3s ease-in-out;
+  }
+  
+  .submenu.open .submenu-items {
+    display: block;
+  }
+  
+  .submenu-items li {
+    padding: 10px;
+    font-size: 14px;
+    color: #ddd;
+  }
+  
+  .submenu-items li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+  
