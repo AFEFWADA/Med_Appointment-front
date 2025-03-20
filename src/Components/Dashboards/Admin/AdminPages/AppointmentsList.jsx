@@ -62,8 +62,9 @@ const AppointmentsList = () => {
       {/* Main Content */}
       <div className="main-content">
         {/* Navbar */}
+        <div className="nav">
         <Navbar />
-
+        </div>
         {/* Appointment List */}
         <div className="appointments-container">
           <div className="top-bar">

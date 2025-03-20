@@ -41,7 +41,9 @@ const PatientsList = () => {
     <div className="main">
       <Sidebar />
       <div className="main-content">
+        <div className="nav">
         <Navbar />
+        </div>
         <div className="patients-container">
           <h2>Patients List</h2>
           <div className="table-wrapper">

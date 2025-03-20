@@ -28,8 +28,10 @@ const DashboardDoctor = () => {
   return (
     <div className="main">
       <Side />
-      <div className="content">
-        <div className="nav"><Navbar /></div>
+      <div className="contents">
+        <div className="nav">
+          <Navbar />
+          </div>
         <div className="main-content">
           {/* stats */}
           <div className="stats">

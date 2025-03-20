@@ -29,7 +29,9 @@ const AddDoctor = () => {
     <div className="main">
       <Sidebar />
       <div className="main-content">
+        <div className="nav">
         <Navbar />
+        </div>
         <div className="add-doctor-containerr">
           <h2 className="title">Add a Doctor</h2>
           <form className="add-doctor-form" onSubmit={handleSubmit}>

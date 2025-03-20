@@ -23,7 +23,9 @@ const DoctorSchedule = () => {
     <div className="main">
       <Sidebar />
       <div className="main-content">
+        <div className="nav">
         <Navbar />
+        </div>
         <div className="schedule-container">
           <h2>Doctor Schedule</h2>
           <div className="top-bar">

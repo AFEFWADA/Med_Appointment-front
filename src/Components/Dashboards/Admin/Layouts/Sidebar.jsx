@@ -18,7 +18,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <h2>Admin</h2>
       <ul>
-        <li className="active" onClick={() => navigate("/dashboard_admin")}>
+        <li className="active" onClick={() => navigate("/dashboard-admin")}>
           <FaTachometerAlt className="icon" /> Dashboard
         </li>
 
