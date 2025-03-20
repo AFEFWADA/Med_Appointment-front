@@ -50,11 +50,11 @@ const DoctorsLists = () => {
   );
 
   return (
-    <div className="main">
+    <div className="mains">
       <Sidebar />
-      <div className="main-content">
+      <div className="mains-content">
         <Navbar />
-        <div className="doctors-container">
+        <div className="doctors-containers">
           <h2>Doctors List</h2>
           
           {/* Search Bar */}
@@ -68,7 +68,7 @@ const DoctorsLists = () => {
           </div>
 
           <div className="table-wrapper">
-            <table className="doctors-table">
+            <table className="doctors-tables">
               <thead>
                 <tr>
                   <th>ID</th>
@@ -114,7 +114,7 @@ const DoctorsLists = () => {
           </div>
 
           {editingDoctor && (
-            <div className="edit-form-container">
+            <div className="edit-form-containers">
               <h3>Edit Doctor</h3>
               <input type="text" name="name" value={editingDoctor.name} onChange={handleChange} placeholder="Name" />
               <input type="number" name="age" value={editingDoctor.age} onChange={handleChange} placeholder="Age" />

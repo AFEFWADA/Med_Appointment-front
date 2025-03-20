@@ -111,11 +111,18 @@
     font-size: 18px;
     cursor: pointer;
     transition: 0.3s;
-    margin-top: 60px;
+    margin-top: 45px;
   }
   
   .submit-button:hover {
     background: rgba(255, 255, 255, 0.5);
+  }
+
+  .role-selection{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+    font-size: 15px;
   }
   
   /* Texte de changement */

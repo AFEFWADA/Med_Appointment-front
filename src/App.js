@@ -15,6 +15,8 @@ import AppointmentsList from './Components/Dashboards/Admin/AdminPages/Appointme
 import DashboardPatient from './Components/Dashboards/Patient/DashboardPatient';
 import AppointmentForm from './Components/Dashboards/Patient/PatientPages/AppointmentForm';
 import Doctorlists from './Components/Dashboards/Patient/PatientPages/Doctorlists';
+import Medhistorical from './Components/Dashboards/Patient/PatientPages/Medhistory';
+import DashboardDoctor from './Components/Dashboards/Med/DoctorDashboard';
 function App() {
   return (
     <BrowserRouter> 
@@ -35,6 +37,9 @@ function App() {
         <Route path="/dashboard-patient" element={<DashboardPatient />} />
         <Route path="/rendez-vous" element={<AppointmentForm />} />
         <Route path="/doctors-list-patient" element={<Doctorlists />} /> 
+        <Route path="/appointment-history" element={<Medhistorical />} />
+
+        <Route path="/dashboard-doctor" element={<DashboardDoctor />} />
 
       </Routes>
     </BrowserRouter>

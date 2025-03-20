@@ -34,10 +34,10 @@ const DashboardPatient = () => {
     <div className="dashboard">
       <Sidebar />
       <div className="main-content">
-        <div className="dash">
+        <div className="nav">
           <Navbar />
         </div>
-
+        <div className="first-section">
         <h2>Welcome to your dashboard</h2>
 
         <MedicalHistory /> 
@@ -49,9 +49,9 @@ const DashboardPatient = () => {
         events={appointments}
         dateClick={handleDateClick}
         height="auto"  // Permet au calendrier de s'adapter
-    />
-</div>
-
+         />
+         </div>
+         </div>
 
         <div className="notifications">
           <h3>🔔 Notifications</h3>

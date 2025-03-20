@@ -30,7 +30,7 @@ const AddDoctor = () => {
       <Sidebar />
       <div className="main-content">
         <Navbar />
-        <div className="add-doctor-container">
+        <div className="add-doctor-containerr">
           <h2 className="title">Add a Doctor</h2>
           <form className="add-doctor-form" onSubmit={handleSubmit}>
             <input type="text" name="name" value={doctor.name} onChange={handleChange} placeholder="Full Name" required />

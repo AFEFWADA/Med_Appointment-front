@@ -1,5 +1,5 @@
 /* Main container */
-.main {
+.mains {
     display: flex;
     height: 100vh;
     background-color: #f4f7fc;
@@ -17,7 +17,7 @@
 }
 
 /* Main Content */
-.main-content {
+.mains-content {
     flex-grow: 1;
     margin-left: 250px; /* Sidebar width */
     padding: 20px;
@@ -37,13 +37,13 @@
 }
 
 /* Doctors Container */
-.doctors-container {
+.doctors-containers {
     margin-top: 80px; /* Space for navbar */
     text-align: center;
 }
 
 /* Style du champ Date of Birth */
-.edit-form-container input[type="date"] {
+.edit-form-containers input[type="date"] {
     width: 100%;
     padding: 8px;
     margin: 8px 0;
@@ -72,14 +72,14 @@
 }
 
 /* Table Styles */
-.doctors-table {
+.doctors-tables {
     width: 100%;
     border-collapse: collapse;
     background: white;
     border-radius: 8px;
 }
 
-.doctors-table th {
+.doctors-tables th {
     background-color: #6d6d85;
     color: white;
     padding: 12px;
@@ -88,12 +88,12 @@
     text-align: left;
 }
 
-.doctors-table td {
+.doctors-tables td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
 
-.doctors-table tr:hover {
+.doctors-tables tr:hover {
     background-color: #f1f1f1;
 }
 /* No Results */

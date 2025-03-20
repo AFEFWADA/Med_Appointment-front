@@ -13,7 +13,7 @@ const DashboardAdmin = () => {
     <div className="dashboard">
       <Sidebar />
       <div className="main-content">
-        <div className="dash">
+        <div className="nav">
           <Navbar />
         </div>
 

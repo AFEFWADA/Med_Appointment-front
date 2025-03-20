@@ -1,45 +1,69 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom"; 
 import { 
-  FaTachometerAlt, FaUserMd, FaUsers, FaClipboardList, 
-  FaCalendarCheck, FaClock, FaBuilding, FaAngleDown 
+  FaTachometerAlt, FaUserMd, FaClipboardList, 
+  FaClock, FaAngleDown 
 } from "react-icons/fa";
 import "./Sidebar.css";
 
 const Sidebar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [openSubmenu, setOpenSubmenu] = useState(null);
+  const [isOpen, setIsOpen] = useState(false); // État du menu burger
 
   const toggleSubmenu = (menu) => {
     setOpenSubmenu(openSubmenu === menu ? null : menu);
   };
 
+  // Fermer le menu lors d'un changement de page
+  useEffect(() => {
+    setOpenSubmenu(null);
+    setIsOpen(false); // Fermer la sidebar sur mobile après navigation
+  }, [location.pathname]);
+
   return (
-    <div className="sidebar">
-      <h2>Patient</h2>
-      <ul>
-        <li className="active" onClick={() => navigate("/dashboard-patient")}>
-          <FaTachometerAlt className="icon" /> Dashboard
-        </li>
+    <div className={`sidebar-container ${isOpen ? "open" : ""}`}>
+      {/* Icône du menu burger */}
+      <div className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
+        ☰
+      </div>
 
-      
+      <div className={`sidebar ${isOpen ? "show" : ""}`}>
+        <h2>Patient</h2>
+        <ul>
+          <li 
+            className={location.pathname === "/dashboard-patient" ? "active" : ""}
+            onClick={() => navigate("/dashboard-patient")}
+          >
+            <FaTachometerAlt className="icon" /> Dashboard
+          </li>
 
-        {/* patient Dropdown */}
-        <li className={`submenu ${openSubmenu === "patient" ? "open" : ""}`}>
-          <span onClick={() => toggleSubmenu("patient")}>
-            <FaUserMd className="icon" /> Appointments
-            <FaAngleDown className={`arrow ${openSubmenu === "patient" ? "rotated" : ""}`} />
-          </span>
-          <ul className="submenu-items">
-            <li onClick={() => navigate("/appointment-history")}>History</li>
-            <li onClick={() => navigate("/appointment-liste")}>Appointments list</li>
+          {/* Appointments Dropdown */}
+          <li className={`submenu ${openSubmenu === "appointments" ? "open" : ""}`}>
+            <span onClick={() => toggleSubmenu("appointments")}>
+              <FaUserMd className="icon" /> Appointments
+              <FaAngleDown className={`arrow ${openSubmenu === "appointments" ? "rotated" : ""}`} />
+            </span>
+            <ul className="submenu-items">
+              <li onClick={() => navigate("/appointment-history")}>History</li>
+              <li onClick={() => navigate("/appointment-liste")}>Appointments list</li>
+            </ul>
+          </li>
 
-          </ul>
-        </li>
+          <li className={location.pathname === "/rendez-vous" ? "active" : ""}
+            onClick={() => navigate("/rendez-vous")}
+          >
+            <FaClipboardList className="icon" /> Make an appointment
+          </li>
 
-        <li onClick={() => navigate("/rendez-vous")}><FaClipboardList className="icon" /> Make an appointment</li>
-        <li onClick={() => navigate("/doctors-list-patient")}><FaClock className="icon" /> Doctors</li>
-      </ul>
+          <li className={location.pathname === "/doctors-list-patient" ? "active" : ""}
+            onClick={() => navigate("/doctors-list-patient")}
+          >
+            <FaClock className="icon" /> Doctors
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

@@ -14,6 +14,10 @@
     height: 100vh;
     overflow-y: auto;
 }
+.nav{
+    display: flex;
+    margin-top: 0px;
+}
 
 /* Main Content */
 .main-content {
@@ -22,6 +26,7 @@
     margin-left: 250px; /* Ensures content starts after the sidebar */
     overflow-y: auto;
     height: 100vh;
+    margin-top: 30px;
 }
 
 /* Spacing for sections */
