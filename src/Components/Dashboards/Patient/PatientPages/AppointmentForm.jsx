@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import axios from "axios"; // Import axios
+import { toast, ToastContainer } from "react-toastify"; // Import toast and ToastContainer
 import Navbar from "../../../Layout/Navbar";
 import Sidebar from "../../../Dashboards/Patient/Layouts/Sidebar";
+import "react-toastify/dist/ReactToastify.css"; // Import toast CSS
 import "./AppointmentForm.css";
 
 const AppointmentForm = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
+    name: "",
     lastName: "",
     gender: "",
     mobile: "",
@@ -17,7 +20,7 @@ const AppointmentForm = () => {
     doctor: "",
     treatment: "",
     notes: "",
-    images: [], // Stocker plusieurs images
+    images: [], // Store multiple images
   });
 
   const handleChange = (e) => {
@@ -36,10 +39,47 @@ const AppointmentForm = () => {
     setFormData({ ...formData, images: updatedImages });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    alert("Rendez-vous soumis avec succès !");
+
+    // Log formData to ensure it's populated correctly
+    console.log(formData);
+
+    // Prepare the form data for submission
+    const formDataToSubmit = new FormData();
+    formDataToSubmit.append("name", formData.name);
+    formDataToSubmit.append("lastName", formData.lastName);
+    formDataToSubmit.append("gender", formData.gender);
+    formDataToSubmit.append("mobile", formData.mobile);
+    formDataToSubmit.append("email", formData.email);
+    formDataToSubmit.append("address", formData.address);
+    formDataToSubmit.append("date", formData.date);
+    formDataToSubmit.append("fromTime", formData.fromTime);
+    formDataToSubmit.append("toTime", formData.toTime);
+    formDataToSubmit.append("doctor", formData.doctor);
+    formDataToSubmit.append("treatment", formData.treatment);
+    formDataToSubmit.append("notes", formData.notes);
+
+    // Append each image to the FormData
+    formData.images.forEach((image) => {
+      formDataToSubmit.append("images", image);
+    });
+
+    try {
+      const response = await axios.post("http://localhost:4000/api/appointments/create", formDataToSubmit, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+    
+      console.log(response.data);
+      toast.success("Rendez-vous soumis avec succès !");
+    } catch (error) {
+      console.error("There was an error submitting the form", error);
+      console.error(error.response ? error.response.data : error); // Affiche la réponse d'erreur complète du serveur
+      toast.error("Erreur lors de l'envoi du rendez-vous !");
+    }
+    
   };
 
   return (
@@ -63,7 +103,7 @@ const AppointmentForm = () => {
                 <div className="form-row">
                   <div className="form-group">
                     <label>First Name <span>*</span></label>
-                    <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required />
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} required />
                   </div>
                   <div className="form-group">
                     <label>Last Name <span>*</span></label>
@@ -106,7 +146,7 @@ const AppointmentForm = () => {
                 <div className="date-time-row">
                   <div className="form-group">
                     <label>Date of Appointment <span>*</span></label>
-                    <input type="date" name="date" value={formData.date} onChange={handleChange} required min={0}/>
+                    <input type="date" name="date" value={formData.date} onChange={handleChange} required />
                   </div>
                   <div className="form-group">
                     <label>From <span>*</span></label>
@@ -144,7 +184,7 @@ const AppointmentForm = () => {
                   <input type="file" name="images" multiple onChange={handleFileChange} />
                 </div>
 
-                {/* Liste des images avec bouton ❌ */}
+                {/* List images with remove button */}
                 <div className="uploaded-files">
                   {formData.images.length > 0 && (
                     <ul>
@@ -165,10 +205,12 @@ const AppointmentForm = () => {
                 <button type="submit" className="btn submit">Submit</button>
               </div>
             </form>
-
           </div>
         </div>
       </div>
+
+      {/* ToastContainer to render notifications */}
+      <ToastContainer />
     </div>
   );
 };
