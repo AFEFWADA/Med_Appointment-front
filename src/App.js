@@ -17,6 +17,7 @@ import AppointmentForm from './Components/Dashboards/Patient/PatientPages/Appoin
 import Doctorlists from './Components/Dashboards/Patient/PatientPages/Doctorlists';
 import Medhistorical from './Components/Dashboards/Patient/PatientPages/Medhistory';
 import DashboardDoctor from './Components/Dashboards/Med/DoctorDashboard';
+import SettingsPage from './Components/Dashboards/Patient/PatientPages/Setting';
 function App() {
   return (
     <BrowserRouter> 
@@ -40,6 +41,8 @@ function App() {
         <Route path="/appointment-history" element={<Medhistorical />} />
 
         <Route path="/dashboard-doctor" element={<DashboardDoctor />} />
+
+        <Route path="/setting" element={<SettingsPage />} />
 
       </Routes>
     </BrowserRouter>

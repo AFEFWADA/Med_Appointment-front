@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom"; 
 import { 
   FaTachometerAlt, FaUserMd, FaClipboardList, 
-  FaClock, FaAngleDown 
+  FaClock, FaAngleDown ,FaCog
 } from "react-icons/fa";
 import "./Sidebar.css";
 
@@ -10,7 +10,7 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [openSubmenu, setOpenSubmenu] = useState(null);
-  const [isOpen, setIsOpen] = useState(false); // État du menu burger
+  const [isOpen, setIsOpen] = useState(false); 
 
   const toggleSubmenu = (menu) => {
     setOpenSubmenu(openSubmenu === menu ? null : menu);
@@ -61,6 +61,11 @@ const Sidebar = () => {
             onClick={() => navigate("/doctors-list-patient")}
           >
             <FaClock className="icon" /> Doctors
+          </li>
+          <li className={location.pathname === "/setting" ? "active" : ""}
+            onClick={() => navigate("/setting")}
+          >
+            <FaCog className="icon" /> Setting 
           </li>
         </ul>
       </div>
