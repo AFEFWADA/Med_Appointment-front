@@ -5,7 +5,8 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
-import { useAuth } from './AuthContext'; // Import du contexte d'authentification
+import { useAuth } from '../Pages/AuthContext';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
@@ -18,57 +19,67 @@ function Login() {
   });
 
   const navigate = useNavigate();
-  const { login, user } = useAuth(); // Récupération de l'utilisateur du contexte
+  const { login, user } = useAuth();
 
-  // Redirection automatique après connexion
   useEffect(() => {
     if (user?.role) {
-      console.log("Redirection en cours vers :", user.role);
-      navigate(user.role === 'admin' ? '/dashboard-admin' 
-             : user.role === 'doctor' ? '/dashboard-doctor' 
+      navigate(user.role === 'admin' ? '/dashboard-admin'
+             : user.role === 'doctor' ? '/dashboard-doctor'
              : '/dashboard-patient');
     }
-  }, [user, navigate]); // Surveiller les changements de `user` pour rediriger
+  }, [user, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (isLogin) {
         const { email, password } = formData;
-        console.log("Tentative de connexion avec :", { email, password });
-
-        const { data } = await axios.post('http://localhost:4000/api/auth/login', { email, password });
-
-        console.log("Réponse du serveur :", data);
-
+        const response = await axios.post('http://localhost:4000/api/auth/login', { email, password });
+        const data = response.data;
+  
         if (data.success) {
           toast.success("Login réussi !");
-          const { token, role, name } = data;
 
-          // Stockage des informations utilisateur
-          const userData = { token, name, role };
-          localStorage.setItem('user', JSON.stringify(userData));
+          const userData = { token: data.token, user: data.user };
+          
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
 
-          login(userData); // Mise à jour du contexte d'authentification
+          login(userData, navigate);
         } else {
-          toast.error("Échec de la connexion ! Identifiants invalides.");
+          toast.error(data.message || "Échec de la connexion !");
         }
+  
       } else {
         const { firstName, lastName, email, password, role } = formData;
         const payload = { name: firstName, lastName, email, password, role };
-
-        const { data } = await axios.post('http://localhost:4000/api/auth/register', payload);
-
+        const response = await axios.post('http://localhost:4000/api/auth/register', payload);
+        const data = response.data;
+  
         if (data.success) {
           toast.success("Inscription réussie !");
-          setIsLogin(true); // Basculer vers la connexion après l'inscription
+          setIsLogin(true);
+        } else {
+          toast.error(data.message || "Erreur lors de l'inscription");
         }
       }
     } catch (error) {
-      console.error("Erreur :", error.response?.data || error.message);
-      toast.error(error.response?.data?.message || "Une erreur est survenue");
+      const errorMessage = error.response?.data?.message;
+  
+      if (errorMessage?.toLowerCase().includes("email") && errorMessage.toLowerCase().includes("exist")) {
+        toast.error("L'email est déjà utilisé.");
+      } else if (errorMessage?.toLowerCase().includes("mot de passe") || errorMessage?.toLowerCase().includes("password")) {
+        toast.error("Mot de passe incorrect.");
+      } else if (errorMessage?.toLowerCase().includes("not found")) {
+        toast.error("Utilisateur non trouvé.");
+      } else {
+        toast.error(errorMessage || "Une erreur est survenue.");
+      }
+  
+      console.error("Erreur complète :", error.response || error);
     }
   };
+  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -81,20 +92,14 @@ function Login() {
   return (
     <div className="login-container">
       <div className="login-card">
-        {/* Image section */}
         <div className="image-section">
           <img src={background} alt="Login Illustration" />
         </div>
 
-        {/* Form section */}
         <div className="form-section">
           <div className="tabs">
-            <button className={isLogin ? 'active' : ''} onClick={() => setIsLogin(true)}>
-              Login
-            </button>
-            <button className={!isLogin ? 'active' : ''} onClick={() => setIsLogin(false)}>
-              Register
-            </button>
+            <button className={isLogin ? 'active' : ''} onClick={() => setIsLogin(true)}>Login</button>
+            <button className={!isLogin ? 'active' : ''} onClick={() => setIsLogin(false)}>Register</button>
           </div>
 
           <form onSubmit={handleSubmit}>
@@ -103,9 +108,7 @@ function Login() {
                 <input type="email" name="email" placeholder="Email" className="input-field" value={formData.email} onChange={handleChange} required />
                 <input type="password" name="password" placeholder="Password" className="input-field" value={formData.password} onChange={handleChange} required />
                 <button type="submit" className="submit-button">Login</button>
-                <p className="switch-text">
-                  Don't have an account? <span onClick={() => setIsLogin(false)}>Register</span>
-                </p>
+                <p className="switch-text">Don't have an account? <span onClick={() => setIsLogin(false)}>Register</span></p>
               </div>
             ) : (
               <div className="form">
@@ -114,26 +117,14 @@ function Login() {
                 <input type="email" name="email" placeholder="Email" className="input-field" value={formData.email} onChange={handleChange} required />
                 <input type="password" name="password" placeholder="Password" className="input-field" value={formData.password} onChange={handleChange} required />
                 
-                {/* Sélection du rôle */}
                 <div className="role-selection">
-                  <label>
-                    <input type="radio" name="role" value="patient" checked={formData.role === "patient"} onChange={handleChange} required />
-                    Patient
-                  </label>
-                  <label>
-                    <input type="radio" name="role" value="doctor" checked={formData.role === "doctor"} onChange={handleChange} required />
-                    Doctor
-                  </label>
-                  <label>
-                    <input type="radio" name="role" value="admin" checked={formData.role === "admin"} onChange={handleChange} required />
-                    Admin
-                  </label>
+                  <label><input type="radio" name="role" value="patient" checked={formData.role === "patient"} onChange={handleChange} required /> Patient</label>
+                  <label><input type="radio" name="role" value="doctor" checked={formData.role === "doctor"} onChange={handleChange} required /> Doctor</label>
+                  <label><input type="radio" name="role" value="admin" checked={formData.role === "admin"} onChange={handleChange} required /> Admin</label>
                 </div>
 
                 <button type="submit" className="submit-button">Register</button>
-                <p className="switch-text">
-                  Already have an account? <span onClick={() => setIsLogin(true)}>Login</span>
-                </p>
+                <p className="switch-text">Already have an account? <span onClick={() => setIsLogin(true)}>Login</span></p>
               </div>
             )}
           </form>

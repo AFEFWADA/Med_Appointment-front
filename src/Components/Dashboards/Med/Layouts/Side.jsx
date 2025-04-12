@@ -18,7 +18,7 @@ const Side = () => {
     <div className="sidebar">
       <h2>Doctor</h2>
       <ul>
-        <li className="active" onClick={() => navigate("/dashboard_admin")}>
+        <li className="active" onClick={() => navigate("/dashboard_doctor")}>
           <FaTachometerAlt className="icon" /> Dashboard
         </li>
 
@@ -42,7 +42,6 @@ const Side = () => {
           </span>
           <ul className="submenu-items">
             <li onClick={() => navigate("/doctors-list")}>Doctors List</li>
-            <li onClick={() => navigate("/add-doctor")}>Add Doctor</li>
             <li onClick={() => navigate("/doctors-schedule")}>Doctors Schedule</li>
 
           </ul>

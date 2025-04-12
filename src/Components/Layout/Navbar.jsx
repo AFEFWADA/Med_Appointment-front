@@ -2,11 +2,12 @@ import React from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../assets/logo.png";
+import { useAuth } from "../Pages/AuthContext"; 
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
+  const { logout } = useAuth(); 
   // Pages où le bouton Login doit apparaître
   const showLoginButton = ["/", "/about", "/doctors", "/contact"].includes(location.pathname);
 
@@ -14,16 +15,10 @@ const Navbar = () => {
   const showLogoutButton = !showLoginButton; 
 
   const handleLogout = () => {
-    // Suppression du token de session
-    localStorage.removeItem("token");  
-  
-    // Empêcher le retour en arrière
-    window.history.replaceState(null, "", "/login");
-  
-    // Redirection vers la page de login
-    navigate("/login", { replace: true });
+    logout(navigate); // Call logout from context and navigate
   };
-  
+
+ 
 
   return (
     <nav className="navbar">

@@ -1,21 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { FaEdit, FaTrash, FaSave, FaTimes } from "react-icons/fa";
 import Sidebar from "../Layouts/Sidebar";
 import Navbar from "../../../Layout/Navbar";
 import "./PatientsList.css";
 
-const initialPatients = [
-  { id: 1, name: "John Doe", age: 30, dob: "1993-05-14", email: "johndoe@example.com", mobile: "123-456-7890", diagnosis: "Flu" },
-  { id: 2, name: "Jane Smith", age: 25, dob: "1998-08-22", email: "janesmith@example.com", mobile: "987-654-3210", diagnosis: "Asthma" },
-  { id: 3, name: "Michael Johnson", age: 40, dob: "1983-02-10", email: "michaelj@example.com", mobile: "555-123-4567", diagnosis: "Diabetes" },
-];
-
 const PatientsList = () => {
-  const [patients, setPatients] = useState(initialPatients);
+  const [patients, setPatients] = useState([]);
   const [editingPatient, setEditingPatient] = useState(null);
 
+  useEffect(() => {
+    const fetchPatients = async () => {
+      try {
+        const res = await axios.get("http://localhost:4000/api/user/all-patients");
+        setPatients(res.data.patients || []);
+      } catch (error) {
+        console.error("Error fetching patients:", error);
+      }
+    };
+
+    fetchPatients();
+  }, []);
+
   const handleDelete = (id) => {
-    setPatients(patients.filter((patient) => patient.id !== id));
+    setPatients(patients.filter((p) => p._id !== id));
   };
 
   const handleEdit = (patient) => {
@@ -28,7 +36,7 @@ const PatientsList = () => {
 
   const handleSave = () => {
     setPatients(
-      patients.map((p) => (p.id === editingPatient.id ? editingPatient : p))
+      patients.map((p) => (p._id === editingPatient._id ? editingPatient : p))
     );
     setEditingPatient(null);
   };
@@ -42,7 +50,7 @@ const PatientsList = () => {
       <Sidebar />
       <div className="main-content">
         <div className="nav">
-        <Navbar />
+          <Navbar />
         </div>
         <div className="patients-container">
           <h2>Patients List</h2>
@@ -50,31 +58,27 @@ const PatientsList = () => {
             <table className="patients-table">
               <thead>
                 <tr>
-                  <th>ID</th>
+                  <th>#</th>
                   <th>Name</th>
-                  <th>Age</th>
-                  <th>Date of Birth</th>
+                  <th>Gender</th>
                   <th>Email</th>
-                  <th>Mobile</th>
-                  <th>Diagnosis</th>
+                  <th>Phone</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {patients.map((patient) => (
-                  <tr key={patient.id}>
-                    <td>{patient.id}</td>
-                    <td>{patient.name}</td>
-                    <td>{patient.age}</td>
-                    <td>{patient.dob}</td>
+                {patients.map((patient, index) => (
+                  <tr key={patient._id}>
+                    <td>{index + 1}</td>
+                    <td>{patient.name} {patient.lastName}</td>
+                    <td>{patient.gender || "--"}</td>
                     <td>{patient.email}</td>
-                    <td>{patient.mobile}</td>
-                    <td>{patient.diagnosis}</td>
+                    <td>{patient.phone || "--"}</td>
                     <td className="actions">
                       <button className="edit-btn" onClick={() => handleEdit(patient)}>
                         <FaEdit />
                       </button>
-                      <button className="delete-btn" onClick={() => handleDelete(patient.id)}>
+                      <button className="delete-btn" onClick={() => handleDelete(patient._id)}>
                         <FaTrash />
                       </button>
                     </td>
@@ -92,19 +96,20 @@ const PatientsList = () => {
                 name="name"
                 value={editingPatient.name}
                 onChange={handleChange}
-                placeholder="Name"
+                placeholder="First Name"
               />
               <input
-                type="number"
-                name="age"
-                value={editingPatient.age}
+                type="text"
+                name="lastName"
+                value={editingPatient.lastName}
                 onChange={handleChange}
-                placeholder="Age"
+                placeholder="Last Name"
               />
+              
               <input
                 type="date"
                 name="dob"
-                value={editingPatient.dob}
+                value={editingPatient.dob || ""}
                 onChange={handleChange}
                 placeholder="Date of Birth"
               />
@@ -115,19 +120,20 @@ const PatientsList = () => {
                 onChange={handleChange}
                 placeholder="Email"
               />
-              <input
-                type="text"
-                name="mobile"
-                value={editingPatient.mobile}
-                onChange={handleChange}
-                placeholder="Mobile"
+             <input
+               type="text"
+               name="gender"
+               value={editingPatient.gender || ""}
+               onChange={handleChange}
+               placeholder="Gender"  
               />
-              <input
-                type="text"
-                name="diagnosis"
-                value={editingPatient.diagnosis}
-                onChange={handleChange}
-                placeholder="Diagnosis"
+
+               < input
+               type="number"
+               name="phone"  
+                value={editingPatient.phone || ""}  
+               onChange={handleChange}
+               placeholder="Phone"
               />
 
               <div className="edit-buttons">

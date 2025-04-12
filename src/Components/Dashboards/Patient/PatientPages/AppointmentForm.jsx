@@ -76,7 +76,7 @@ const AppointmentForm = () => {
       toast.success("Rendez-vous soumis avec succès !");
     } catch (error) {
       console.error("There was an error submitting the form", error);
-      console.error(error.response ? error.response.data : error); // Affiche la réponse d'erreur complète du serveur
+      console.error(error.response ? error.response.data : error); 
       toast.error("Erreur lors de l'envoi du rendez-vous !");
     }
     
