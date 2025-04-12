@@ -5,6 +5,7 @@ import Navbar from "../../../Layout/Navbar";
 import Sidebar from "../../../Dashboards/Patient/Layouts/Sidebar";
 import "react-toastify/dist/ReactToastify.css"; // Import toast CSS
 import "./AppointmentForm.css";
+import { useAuth } from "../../../Pages/AuthContext"; // Import useAuth for authentication context
 
 const AppointmentForm = () => {
   const [formData, setFormData] = useState({
@@ -41,11 +42,9 @@ const AppointmentForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Log formData to ensure it's populated correctly
+  
     console.log(formData);
-
-    // Prepare the form data for submission
+  
     const formDataToSubmit = new FormData();
     formDataToSubmit.append("name", formData.name);
     formDataToSubmit.append("lastName", formData.lastName);
@@ -59,28 +58,36 @@ const AppointmentForm = () => {
     formDataToSubmit.append("doctor", formData.doctor);
     formDataToSubmit.append("treatment", formData.treatment);
     formDataToSubmit.append("notes", formData.notes);
-
-    // Append each image to the FormData
+  
     formData.images.forEach((image) => {
       formDataToSubmit.append("images", image);
     });
+  
+    // Get the token from localStorage so i can send appointment
+    const token = localStorage.getItem("token");
 
+  
     try {
-      const response = await axios.post("http://localhost:4000/api/appointments/create", formDataToSubmit, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-    
+      const response = await axios.post(
+        "http://localhost:4000/api/appointments/create",
+        formDataToSubmit,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            "Authorization": `Bearer ${token}`, 
+          },
+        }
+      );
+  
       console.log(response.data);
       toast.success("Rendez-vous soumis avec succès !");
     } catch (error) {
       console.error("There was an error submitting the form", error);
-      console.error(error.response ? error.response.data : error); 
+      console.error(error.response ? error.response.data : error);
       toast.error("Erreur lors de l'envoi du rendez-vous !");
     }
-    
   };
+  
 
   return (
     <div className="main-container">

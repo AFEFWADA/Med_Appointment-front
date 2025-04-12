@@ -14,20 +14,20 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData, navigate) => {
     console.log('🔍 userData:', userData); 
-
-    setUser(userData.user); 
-    localStorage.setItem('user', JSON.stringify(userData.user));
-    const user = JSON.parse(localStorage.getItem("user"));
-    const token = user?.token;
-
-    if (userData.user.role === 'admin') {
+    setUser(userData);
+    localStorage.setItem('user', JSON.stringify(userData));
+  
+    // Redirection
+    if (userData.role === 'admin') {
       navigate('/dashboard-admin');
-    } else if (userData.user.role === 'doctor') {
+    } else if (userData.role === 'doctor') {
       navigate('/dashboard-doctor');
     } else {
       navigate('/dashboard-patient');
     }
   };
+  
+  
 
   const logout = (navigate) => {
     localStorage.removeItem("user");
