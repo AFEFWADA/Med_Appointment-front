@@ -43,10 +43,17 @@ function Login() {
 
         if (data.success) {
           toast.success("✅ Connexion réussie !");
-          const { token, user } = data;
+         const { token, user } = data;
 
-          localStorage.setItem('token', token);
-          login(user, navigate);
+         // localStorage.setItem('token', token);
+         localStorage.setItem('authToken', token);
+         localStorage.setItem('userRole', user.role);
+
+        //  login(user, navigate);
+
+
+         //  localStorage.setItem('token', token); // 
+          login({ token, user }, navigate);
         } else {
           toast.error("❌ Échec de la connexion !");
         }
@@ -71,7 +78,7 @@ function Login() {
       } else if (errorMessage.includes("invalid credentials") || errorMessage.includes("wrong password")) {
         toast.error("❌ Email ou mot de passe incorrect !");
       } else if (errorMessage.includes("user not found")) {
-        toast.error("🔍 Utilisateur non trouvé !");
+        toast.error(" Utilisateur non trouvé !");
       } else {
         toast.error((error.response?.data?.message || "Une erreur est survenue !"));
       }

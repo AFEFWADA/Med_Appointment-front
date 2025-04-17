@@ -29,7 +29,7 @@ const Side = () => {
             <FaAngleDown className={`arrow ${openSubmenu === "patients" ? "rotated" : ""}`} />
           </span>
           <ul className="submenu-items">
-            <li onClick={() => navigate("/patients-list")}>Patients List</li>
+            <li onClick={() => navigate("/patients-lists")}>Patients List</li>
             
           </ul>
         </li>
@@ -41,16 +41,13 @@ const Side = () => {
             <FaAngleDown className={`arrow ${openSubmenu === "doctors" ? "rotated" : ""}`} />
           </span>
           <ul className="submenu-items">
-            <li onClick={() => navigate("/doctors-list")}>Doctors List</li>
-            <li onClick={() => navigate("/doctors-schedule")}>Doctors Schedule</li>
+            <li onClick={() => navigate("/doctors-lists")}>Doctors List</li>
 
           </ul>
         </li>
 
-        <li onClick={() => navigate("/staff")}><FaClipboardList className="icon" /> Staff</li>
-        <li onClick={() => navigate("/appointments")}><FaCalendarCheck className="icon" /> Appointments</li>
+        <li onClick={() => navigate("/appointments-for-doctors")}><FaCalendarCheck className="icon" /> Appointments</li>
         <li onClick={() => navigate("/schedule")}><FaClock className="icon" /> Doctor Schedule</li>
-        <li onClick={() => navigate("/departments")}><FaBuilding className="icon" /> Departments</li>
       </ul>
     </div>
   );

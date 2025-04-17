@@ -5,7 +5,7 @@ import Navbar from "../../../Layout/Navbar";
 import Sidebar from "../../../Dashboards/Patient/Layouts/Sidebar";
 import "react-toastify/dist/ReactToastify.css"; // Import toast CSS
 import "./AppointmentForm.css";
-import { useAuth } from "../../../Pages/AuthContext"; // Import useAuth for authentication context
+import { useAuth } from "../../../Pages/AuthContext"
 
 const AppointmentForm = () => {
   const [formData, setFormData] = useState({
@@ -64,7 +64,10 @@ const AppointmentForm = () => {
     });
   
     // Get the token from localStorage so i can send appointment
-    const token = localStorage.getItem("token");
+   const token = localStorage.getItem("token");
+   console.log("Token being sent:", token);
+
+
 
   
     try {

@@ -14,9 +14,14 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData, navigate) => {
     console.log('🔍 userData:', userData); 
-    setUser(userData);
-    localStorage.setItem('user', JSON.stringify(userData));
+
+    //setUser(userData);
+    //localStorage.setItem('user', JSON.stringify(userData));
   
+    setUser(userData.user); // Only user info in context
+    localStorage.setItem('user', JSON.stringify(userData.user)); 
+    localStorage.setItem('token', userData.token);
+
     // Redirection
     if (userData.role === 'admin') {
       navigate('/dashboard-admin');

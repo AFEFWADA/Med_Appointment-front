@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Sidebar from "../Layouts/Sidebar";
 import Navbar from "../../../Layout/Navbar";
-import axios from "axios"; 
-import { toast } from "react-toastify"; 
-import "react-toastify/dist/ReactToastify.css"; 
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify"; // Import toast
+import "react-toastify/dist/ReactToastify.css"; // Import toast CSS
 import "./AddDoctor.css";
 
 const AddDoctor = () => {
@@ -12,7 +12,7 @@ const AddDoctor = () => {
     lastName: "",
     email: "",
     password: "",
-    role: "doctor", // default role
+    role: "doctor", 
     specialty: "",
     experience: "",
   });
@@ -24,23 +24,22 @@ const AddDoctor = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const token = localStorage.getItem("authToken"); // Assuming the token is stored in localStorage
+    const token = localStorage.getItem("authToken");
 
     try {
-      // Send a POST request to the backend API with the token in the header
       const response = await axios.post(
         "http://localhost:4000/api/user/add-doctor",
         doctor,
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Include the JWT token in the header
+            Authorization: `Bearer ${token}`,
           },
         }
       );
 
-      // Handle success
+      // If the response is successful
       console.log(response.data);
-      toast.success("Doctor added successfully!"); // Success notification
+      toast.success("Doctor added successfully!"); // Success toast
 
       // Reset the form
       setDoctor({
@@ -53,9 +52,23 @@ const AddDoctor = () => {
         experience: "",
       });
     } catch (error) {
-      // Handle error
+      // Handle error by checking specific error messages from the server
+      if (error.response) {
+        const errorMessage = error.response.data.message;
+
+        if (errorMessage.includes("duplicate key error")) {
+          toast.error("📧 Email is already used!"); // Email already used error
+        } else if (errorMessage.includes("Password must be at least 6 characters")) {
+          toast.error("🔒 Password must be at least 6 characters!"); // Short password error
+        } else {
+          toast.error("Error adding doctor. Please try again."); // General error message
+        }
+      } else {
+        // If error is not from the server
+        toast.error("Error adding doctor. Please try again.");
+      }
+
       console.error("Error adding doctor:", error.response || error);
-      toast.error("Error adding doctor. Please try again."); // Error notification
     }
   };
 
@@ -123,6 +136,9 @@ const AddDoctor = () => {
           </form>
         </div>
       </div>
+
+      {/* Toast Container to display notifications */}
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 };
