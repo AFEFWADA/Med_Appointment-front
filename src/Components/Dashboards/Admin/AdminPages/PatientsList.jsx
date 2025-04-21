@@ -12,18 +12,38 @@ const PatientsList = () => {
   useEffect(() => {
     const fetchPatients = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/user/all-patients");
-        setPatients(res.data.patients || []);
+        const token = localStorage.getItem("token");
+        const res = await axios.get("http://localhost:4000/api/user/all-patients", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setPatients(res.data.data || []);
       } catch (error) {
-        console.error("Error fetching patients:", error);
+        console.error("Error fetching patients:", error.response?.data || error.message);
       }
     };
 
     fetchPatients();
   }, []);
 
-  const handleDelete = (id) => {
-    setPatients(patients.filter((p) => p._id !== id));
+  const handleDelete = async (id) => {
+    const confirm = window.confirm("Are you sure you want to delete this patient?");
+    if (!confirm) return;
+
+    try {
+      const token = localStorage.getItem("token");
+      await axios.delete(`http://localhost:4000/api/user/delete-user/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setPatients(patients.filter((p) => p._id !== id));
+      alert("Patient deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting patient:", error);
+      alert("Failed to delete patient. Please make sure you have admin access.");
+    }
   };
 
   const handleEdit = (patient) => {
@@ -34,12 +54,35 @@ const PatientsList = () => {
     setEditingPatient({ ...editingPatient, [e.target.name]: e.target.value });
   };
 
-  const handleSave = () => {
-    setPatients(
-      patients.map((p) => (p._id === editingPatient._id ? editingPatient : p))
-    );
-    setEditingPatient(null);
+  const handleSave = async () => {
+    try {
+      const token = localStorage.getItem("token");
+  
+      const res = await axios.patch(
+        `http://localhost:4000/api/user/update-user/${editingPatient._id}`,
+        editingPatient,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+  
+      // Update UI
+      setPatients(
+        patients.map((p) =>
+          p._id === editingPatient._id ? res.data.data.user : p
+        )
+      );
+  
+      setEditingPatient(null);
+      alert("Patient updated successfully!");
+    } catch (error) {
+      console.error("Error updating patient:", error);
+      alert("Failed to update patient. Please ensure you have admin access.");
+    }
   };
+  
 
   const handleCancel = () => {
     setEditingPatient(null);
@@ -60,9 +103,8 @@ const PatientsList = () => {
                 <tr>
                   <th>#</th>
                   <th>Name</th>
-                  <th>Gender</th>
                   <th>Email</th>
-                  <th>Phone</th>
+                  <th>Role</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -71,9 +113,8 @@ const PatientsList = () => {
                   <tr key={patient._id}>
                     <td>{index + 1}</td>
                     <td>{patient.name} {patient.lastName}</td>
-                    <td>{patient.gender || "--"}</td>
                     <td>{patient.email}</td>
-                    <td>{patient.phone || "--"}</td>
+                    <td>{patient.role || "--"}</td>
                     <td className="actions">
                       <button className="edit-btn" onClick={() => handleEdit(patient)}>
                         <FaEdit />
@@ -105,7 +146,6 @@ const PatientsList = () => {
                 onChange={handleChange}
                 placeholder="Last Name"
               />
-              
               <input
                 type="date"
                 name="dob"
@@ -120,20 +160,20 @@ const PatientsList = () => {
                 onChange={handleChange}
                 placeholder="Email"
               />
-             <input
-               type="text"
-               name="gender"
-               value={editingPatient.gender || ""}
-               onChange={handleChange}
-               placeholder="Gender"  
+             
+              <input
+                type="number"
+                name="phone"
+                value={editingPatient.phone || ""}
+                onChange={handleChange}
+                placeholder="Phone"
               />
-
-               < input
-               type="number"
-               name="phone"  
-                value={editingPatient.phone || ""}  
-               onChange={handleChange}
-               placeholder="Phone"
+              <input
+                type="text"
+                name="role"
+                value={editingPatient.role || ""}
+                onChange={handleChange}
+                placeholder="Role"
               />
 
               <div className="edit-buttons">

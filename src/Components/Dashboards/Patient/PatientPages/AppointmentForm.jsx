@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import axios from "axios"; // Import axios
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { toast, ToastContainer } from "react-toastify"; // Import toast and ToastContainer
 import Navbar from "../../../Layout/Navbar";
 import Sidebar from "../../../Dashboards/Patient/Layouts/Sidebar";
 import "react-toastify/dist/ReactToastify.css"; // Import toast CSS
 import "./AppointmentForm.css";
-import { useAuth } from "../../../Pages/AuthContext"
 
 const AppointmentForm = () => {
   const [formData, setFormData] = useState({
@@ -92,6 +91,27 @@ const AppointmentForm = () => {
   };
   
 
+  const [doctors, setDoctors] = useState([]);
+
+useEffect(() => {
+  const fetchDoctors = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await axios.get("http://localhost:4000/api/user/get-doc-for-patients", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setDoctors(res.data.data);
+    } catch (err) {
+      console.error("Failed to load doctors", err);
+    }
+  };
+
+  fetchDoctors();
+}, []);
+
+
   return (
     <div className="main-container">
       <div className="main">
@@ -171,11 +191,16 @@ const AppointmentForm = () => {
                 <div className="form-row">
                   <div className="form-group">
                     <label>Consulting Doctor</label>
-                    <select name="doctor" className="consult-docotrs" value={formData.doctor} onChange={handleChange}>
-                      <option value="">Select Doctor</option>
-                      <option value="Dr. John Doe">Dr. John Doe</option>
-                      <option value="Dr. Jane Smith">Dr. Jane Smith</option>
-                    </select>
+                    <select name="doctor"  className="consult-docotrs" value={formData.doctor} onChange={handleChange} required>
+                       <option value="">Select Doctor</option>
+                           {doctors.map((doc) => (
+                       <option key={doc._id} value={`${doc.name} ${doc.lastName}`}>
+                            {doc.name} {doc.lastName}
+                      </option>
+                        ))}
+                  </select>
+
+
                   </div>
                   <div className="form-group">
                     <label>Treatment <span>*</span></label>

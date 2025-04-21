@@ -48,10 +48,9 @@ const Sidebar = () => {
           </ul>
         </li>
 
-        <li onClick={() => navigate("/staff")}><FaClipboardList className="icon" /> Staff</li>
         <li onClick={() => navigate("/appointments")}><FaCalendarCheck className="icon" /> Appointments</li>
         <li onClick={() => navigate("/schedule")}><FaClock className="icon" /> Doctor Schedule</li>
-        <li onClick={() => navigate("/departments")}><FaBuilding className="icon" /> Departments</li>
+       
       </ul>
     </div>
   );
