@@ -76,6 +76,7 @@ const AppointmentsList = () => {
             <table className="appointments-table">
               <thead>
                 <tr>
+                  <th>#</th>
                   <th>Patient Name</th>
                   <th>Doctor</th>
                   <th>Treatment</th>
@@ -88,8 +89,9 @@ const AppointmentsList = () => {
               </thead>
               <tbody>
                 {filteredAppointments.length > 0 ? (
-                  filteredAppointments.map((appointment) => (
+                  filteredAppointments.map((appointment , index) => (
                     <tr key={appointment._id}>
+                      <td>{index + 1}</td>
                       {/* Patient Name: First and Last Name */}
                       <td>{appointment.name} {appointment.lastName}</td>
                       {/* Doctor Name */}
@@ -132,18 +134,20 @@ const AppointmentsList = () => {
               <div className="modal-content">
                 <h3>Uploaded Images</h3>
                 <div className="images-preview">
-                  {selectedImages.length > 0 ? (
-                    selectedImages.map((img, index) => (
-                      <img
-                        key={index}
-                        src={`http://localhost:4000/${img}`}  // Adjust image path to server URL
-                        alt={`Uploaded ${index + 1}`}
-                      />
-                    ))
-                  ) : (
-                    <p>No images uploaded for this appointment.</p>
-                  )}
-                </div>
+  {selectedImages.length > 0 ? (
+    selectedImages.map((img, index) => (
+      <img
+        key={index}
+        src={`http://localhost:4000/${img}`} 
+        alt={`Uploaded ${index + 1}`}
+        className="preview-img"
+      />
+    ))
+  ) : (
+    <p>No images uploaded for this appointment.</p>
+  )}
+</div>
+
                 <button onClick={() => setShowModal(false)} className="close-btn">Close</button>
               </div>
             </div>

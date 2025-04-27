@@ -1,63 +1,93 @@
-.medical-history {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-  }
-  
-  .header a {
-    color: #374af3;
-    text-decoration: none;
-  }
-  
-  .table {
-    width: 100%;
-    margin-top: 10px;
-  }
-  
-  .table th {
-    font-weight: bold;
-  }
-  
-  .doctor-img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .reschedule-btn {
-    background: #f4f7fc;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    color: #374af3;
-    cursor: pointer;
-  }
-  
-  .pagination {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-  }
-  
-  .page-number {
-    background: #374af3;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
+/* MedicalHistory.css */
 
-  .btn{
-    background: #6d72a2;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+.medical-history {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.header h4 {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #6d6d85;
+  color: white;
+}
+
+.table td {
+  background-color: #fff;
+}
+
+.table .doctor {
+  font-weight: bold;
+}
+
+.table .btn {
+  background-color: #6d6d85;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.table .btn:hover {
+  background-color: #6d6d85;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-number {
+  background-color: #f1f1f1;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  margin: 0 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.page-number:hover {
+  background-color: #6d6d85;
+  color: white;
+}
+
+.page-number.active {
+  background-color: #6d6d85;
+  color: white;
+  font-weight: bold;
+}
+
+.page-number:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+.page-number:focus {
+  outline: none;
+}

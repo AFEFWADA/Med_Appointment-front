@@ -18,7 +18,7 @@ const Side = () => {
     <div className="sidebar">
       <h2>Doctor</h2>
       <ul>
-        <li className="active" onClick={() => navigate("/dashboard_doctor")}>
+        <li className="active" onClick={() => navigate("/dashboard-doctor")}>
           <FaTachometerAlt className="icon" /> Dashboard
         </li>
 
@@ -48,6 +48,8 @@ const Side = () => {
 
         <li onClick={() => navigate("/appointments-for-doctors")}><FaCalendarCheck className="icon" /> Appointments</li>
         <li onClick={() => navigate("/schedule")}><FaClock className="icon" /> Doctor Schedule</li>
+        <li onClick={() => navigate("/brain-tumor-detector")}><FaClock className="icon" /> Tumor detector</li>
+
       </ul>
     </div>
   );

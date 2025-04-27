@@ -1,0 +1,75 @@
+.tumor-container {
+  max-width: 300px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f4f4f8;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+  margin-top: 150px;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.upload-box {
+  margin: 20px 0;
+}
+
+.upload-label {
+  background-color: #2a4667;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.3s;
+}
+
+.upload-label:hover {
+  background-color: #142c41;
+}
+
+.preview img {
+  max-width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.submit-btn {
+  background-color: #8b50a9;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #473d75;
+}
+
+.result {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.result.safe {
+  color: #2ecc71;
+  background-color: #eafaf1;
+}
+
+.result.danger {
+  color: #e74c3c;
+  background-color: #fdecea;
+}

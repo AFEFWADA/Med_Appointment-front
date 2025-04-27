@@ -124,6 +124,7 @@ const DoctorsList = () => {
             <table className="doctors-table">
               <thead>
                 <tr>
+                <th>#</th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Specialty</th>
@@ -134,8 +135,9 @@ const DoctorsList = () => {
               </thead>
               <tbody>
                 {filteredDoctors.length > 0 ? (
-                  filteredDoctors.map((doctor) => (
+                  filteredDoctors.map((doctor , index) => (
                     <tr key={doctor._id}>
+                      <td>{index + 1}</td>
                       <td>{`${doctor.name} ${doctor.lastName}`}</td>
                       <td>{doctor.email || "N/A"}</td>
                       <td>{doctor.specialty || "N/A"}</td>

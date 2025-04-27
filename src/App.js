@@ -18,6 +18,8 @@ import Doctorlists from './Components/Dashboards/Patient/PatientPages/Doctorlist
 import Medhistorical from './Components/Dashboards/Patient/PatientPages/Medhistory';
 import DashboardDoctor from './Components/Dashboards/Med/DoctorDashboard';
 import SettingsPage from './Components/Dashboards/Patient/PatientPages/Setting';
+import BrainTumorPrediction from './Components/Dashboards/Med/Medpages/TumorDetector.jsx';
+import UserImages from './Components/Dashboards/Patient/PatientPages/test.jsx';
 function App() {
   return (
     <BrowserRouter> 
@@ -41,8 +43,11 @@ function App() {
         <Route path="/appointment-history" element={<Medhistorical />} />
 
         <Route path="/dashboard-doctor" element={<DashboardDoctor />} />
+        <Route path="/brain-tumor-detector" element={< BrainTumorPrediction />} />
 
         <Route path="/setting" element={<SettingsPage />} />
+
+        <Route path="/test" element={< UserImages />} />
 
       </Routes>
     </BrowserRouter>
