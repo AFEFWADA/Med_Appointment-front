@@ -20,6 +20,7 @@ import DashboardDoctor from './Components/Dashboards/Med/DoctorDashboard';
 import SettingsPage from './Components/Dashboards/Patient/PatientPages/Setting';
 import BrainTumorPrediction from './Components/Dashboards/Med/Medpages/TumorDetector.jsx';
 import UserImages from './Components/Dashboards/Patient/PatientPages/test.jsx';
+import PatientListDoc from './Components/Dashboards/Med/Medpages/PatientListDoc.jsx';
 function App() {
   return (
     <BrowserRouter> 
@@ -44,6 +45,7 @@ function App() {
 
         <Route path="/dashboard-doctor" element={<DashboardDoctor />} />
         <Route path="/brain-tumor-detector" element={< BrainTumorPrediction />} />
+        <Route path="/patients-lists-fordoc" element={<PatientListDoc />} />
 
         <Route path="/setting" element={<SettingsPage />} />
 

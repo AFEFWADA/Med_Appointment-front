@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { 
-  FaTachometerAlt, FaUserMd, FaUsers, FaClipboardList, 
-  FaCalendarCheck, FaClock, FaBuilding, FaAngleDown 
+  FaTachometerAlt, FaUsers, 
+  FaCalendarCheck, FaClock, FaAngleDown 
 } from "react-icons/fa";
 import "./Side.css";
 
@@ -29,13 +29,13 @@ const Side = () => {
             <FaAngleDown className={`arrow ${openSubmenu === "patients" ? "rotated" : ""}`} />
           </span>
           <ul className="submenu-items">
-            <li onClick={() => navigate("/patients-lists")}>Patients List</li>
+            <li onClick={() => navigate("/patients-lists-fordoc")}>Patients List</li>
             
           </ul>
         </li>
 
         {/* Doctors Dropdown */}
-        <li className={`submenu ${openSubmenu === "doctors" ? "open" : ""}`}>
+     { /*  <li className={`submenu ${openSubmenu === "doctors" ? "open" : ""}`}>
           <span onClick={() => toggleSubmenu("doctors")}>
             <FaUserMd className="icon" /> Doctors
             <FaAngleDown className={`arrow ${openSubmenu === "doctors" ? "rotated" : ""}`} />
@@ -44,7 +44,7 @@ const Side = () => {
             <li onClick={() => navigate("/doctors-lists")}>Doctors List</li>
 
           </ul>
-        </li>
+        </li> */ }
 
         <li onClick={() => navigate("/appointments-for-doctors")}><FaCalendarCheck className="icon" /> Appointments</li>
         <li onClick={() => navigate("/schedule")}><FaClock className="icon" /> Doctor Schedule</li>

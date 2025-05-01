@@ -7,8 +7,11 @@ import DepartmentChart from "./Graphique/DepartmentChart";
 import TopDepartments from "./Graphique/TopDepartments";
 import UpcomingAppointments from "./Graphique/UpcomingAppointments";
 import RecentPatients from "./Graphique/Patients";
+import { useAuth } from "../../../Components/Pages/AuthContext";
 
 const DashboardAdmin = () => {
+  const { user } = useAuth(); 
+
   return (
     <div className="dashboard">
       <Sidebar />
@@ -19,7 +22,10 @@ const DashboardAdmin = () => {
 
         {/* Welcome Message */}
         <div className="welcome-card">
-          <h2>Good Morning, <span className="highlight">Daniel Bruk</span></h2>
+          <h2>
+            Good Morning,{" "}
+            <span className="highlight">{user?.name || "Admin"}</span>
+            </h2>
           <p>Have a nice day at work</p>
         </div>
 

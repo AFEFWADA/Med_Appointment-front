@@ -21,14 +21,11 @@ const AppointmentsList = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-
-        console.log("Appointments from backend:", res.data);
         setAppointments(res.data.appointments || []);
       } catch (error) {
         console.error("Failed to fetch appointments:", error);
       }
     };
-
     fetchAppointments();
   }, []);
 
@@ -89,23 +86,16 @@ const AppointmentsList = () => {
               </thead>
               <tbody>
                 {filteredAppointments.length > 0 ? (
-                  filteredAppointments.map((appointment , index) => (
+                  filteredAppointments.map((appointment, index) => (
                     <tr key={appointment._id}>
                       <td>{index + 1}</td>
-                      {/* Patient Name: First and Last Name */}
                       <td>{appointment.name} {appointment.lastName}</td>
-                      {/* Doctor Name */}
                       <td>{appointment.doctor}</td>
-                      {/* Treatment */}
                       <td>{appointment.treatment}</td>
-                      {/* Mobile */}
                       <td>{appointment.mobile}</td>
-                      {/* Email */}
                       <td>{appointment.email}</td>
-                      {/* Date and Time Formatting */}
                       <td>{format(new Date(appointment.date), "yyyy-MM-dd")}</td>
                       <td>{`${appointment.fromTime}:00 - ${appointment.toTime}:00`}</td>
-                      {/* Image Button */}
                       <td>
                         <button
                           onClick={() => handleViewImages(appointment.images || [])}
@@ -119,7 +109,7 @@ const AppointmentsList = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="8" className="no-results">
+                    <td colSpan="9" className="no-results">
                       No matching appointments found.
                     </td>
                   </tr>
@@ -134,21 +124,27 @@ const AppointmentsList = () => {
               <div className="modal-content">
                 <h3>Uploaded Images</h3>
                 <div className="images-preview">
-  {selectedImages.length > 0 ? (
-    selectedImages.map((img, index) => (
-      <img
-        key={index}
-        src={`http://localhost:4000/${img}`} 
-        alt={`Uploaded ${index + 1}`}
-        className="preview-img"
-      />
-    ))
-  ) : (
-    <p>No images uploaded for this appointment.</p>
-  )}
-</div>
-
-                <button onClick={() => setShowModal(false)} className="close-btn">Close</button>
+                  {selectedImages.length > 0 ? (
+                    selectedImages.map((img, index) => {
+                      const normalizedPath = img.includes("uploads")
+                        ? img.slice(img.indexOf("uploads")).replace(/\\/g, "/")
+                        : img;
+                      return (
+                        <img
+                          key={index}
+                          src={`http://localhost:4000/${normalizedPath}`}
+                          alt={`Uploaded ${index + 1}`}
+                          className="preview-image"
+                        />
+                      );
+                    })
+                  ) : (
+                    <p>No images uploaded for this appointment.</p>
+                  )}
+                </div>
+                <button onClick={() => setShowModal(false)} className="close-btn">
+                  Close
+                </button>
               </div>
             </div>
           )}

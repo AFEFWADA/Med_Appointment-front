@@ -209,6 +209,7 @@ const Medhistorical = () => {
                 <th>Doctor</th>
                 <th>Treatment</th>
                 <th>Date</th>
+                <th>Notes</th> 
                 <th>Action</th>
               </tr>
             </thead>
@@ -218,20 +219,22 @@ const Medhistorical = () => {
                   <td>{appointment.doctor}</td>
                   <td>{appointment.treatment}</td>
                   <td>{appointment.date ? appointment.date.substring(0, 10) : ''}</td>
+                  <td>{appointment.notes}</td> 
                   <td>
-                    <button
-                      className="btn"
-                      onClick={() => handleEdit(appointment)}
-                    >
-                      Update
-                    </button>
-                    <button
-                      className="btn"
-                      onClick={() => handleDelete(appointment._id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
+  <button
+    className="btn update-btn"
+    onClick={() => handleEdit(appointment)}
+  >
+    Update
+  </button>
+  <button
+    className="btn delete-btn"
+    onClick={() => handleDelete(appointment._id)}
+  >
+    Delete
+  </button>
+</td>
+
                 </tr>
               ))}
             </tbody>

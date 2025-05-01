@@ -43,7 +43,6 @@ const Sidebar = () => {
           <ul className="submenu-items">
             <li onClick={() => navigate("/doctors-list")}>Doctors List</li>
             <li onClick={() => navigate("/add-doctor")}>Add Doctor</li>
-            <li onClick={() => navigate("/doctors-schedule")}>Doctors Schedule</li>
 
           </ul>
         </li>

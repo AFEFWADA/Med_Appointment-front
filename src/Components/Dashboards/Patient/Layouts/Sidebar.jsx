@@ -47,7 +47,6 @@ const Sidebar = () => {
             </span>
             <ul className="submenu-items">
               <li onClick={() => navigate("/appointment-history")}>History</li>
-              <li onClick={() => navigate("/appointment-liste")}>Appointments list</li>
             </ul>
           </li>
 
@@ -67,11 +66,7 @@ const Sidebar = () => {
           >
             <FaCog className="icon" /> Setting 
           </li>
-          <li className={location.pathname === "/testtest" ? "active" : ""}
-            onClick={() => navigate("/test")}
-          >
-            <FaCog className="icon" /> teeeeeeeeeeeeeeest image 
-          </li>
+          
         </ul>
       </div>
     </div>
