@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
   const login = (userData, navigate) => {
     console.log('🔍 userData:', userData); 
 
+    
     //setUser(userData);
     //localStorage.setItem('user', JSON.stringify(userData));
   
@@ -23,13 +24,21 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('token', userData.token);
 
     // Redirection
-    if (userData.role === 'admin') {
+ {/*   if (userData.role === 'admin') {
       navigate('/dashboard-admin');
     } else if (userData.role === 'doctor') {
       navigate('/dashboard-doctor');
     } else {
       navigate('/dashboard-patient');
+    }   */}
+    if (userData.user.role === 'admin') {
+      navigate('/dashboard-admin');
+    } else if (userData.user.role === 'doctor') {
+      navigate('/dashboard-doctor');
+    } else {
+      navigate('/dashboard-patient');
     }
+    
   };
   
   

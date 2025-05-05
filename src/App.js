@@ -21,6 +21,9 @@ import SettingsPage from './Components/Dashboards/Patient/PatientPages/Setting';
 import BrainTumorPrediction from './Components/Dashboards/Med/Medpages/TumorDetector.jsx';
 import UserImages from './Components/Dashboards/Patient/PatientPages/test.jsx';
 import PatientListDoc from './Components/Dashboards/Med/Medpages/PatientListDoc.jsx';
+import DiagnosticForm from './Components/Dashboards/Med/Medpages/DiagnosticForm.jsx';
+import DoctorDiagnostics from './Components/Dashboards/Med/Medpages/DoctorDiagnostics.jsx';
+import PatientDiagnostics from './Components/Dashboards/Patient/PatientPages/PatientDiagnostics.jsx';
 function App() {
   return (
     <BrowserRouter> 
@@ -42,10 +45,13 @@ function App() {
         <Route path="/rendez-vous" element={<AppointmentForm />} />
         <Route path="/doctors-list-patient" element={<Doctorlists />} /> 
         <Route path="/appointment-history" element={<Medhistorical />} />
+        <Route path="/diagnostic-list-pat" element={<PatientDiagnostics />} />
 
         <Route path="/dashboard-doctor" element={<DashboardDoctor />} />
         <Route path="/brain-tumor-detector" element={< BrainTumorPrediction />} />
         <Route path="/patients-lists-fordoc" element={<PatientListDoc />} />
+        <Route path="/create-diag" element={<DiagnosticForm />} />
+        <Route path="/List-diag" element={<DoctorDiagnostics />} />
 
         <Route path="/setting" element={<SettingsPage />} />
 

@@ -46,8 +46,19 @@ const Side = () => {
           </ul>
         </li> */ }
 
-        <li onClick={() => navigate("/appointments-for-doctors")}><FaCalendarCheck className="icon" /> Appointments</li>
-        <li onClick={() => navigate("/schedule")}><FaClock className="icon" /> Doctor Schedule</li>
+        {/* Doctor Dropdown */}
+        <li className={`submenu ${openSubmenu === "doctors" ? "open" : ""}`}>
+          <span onClick={() => toggleSubmenu("doctors")}>
+            <FaUsers className="icon" /> Diagnostic
+            <FaAngleDown className={`arrow ${openSubmenu === "doctors" ? "rotated" : ""}`} />
+          </span>
+          <ul className="submenu-items">
+            <li onClick={() => navigate("/create-diag")}>Create diagnostic </li>
+            <li onClick={() => navigate("/List-diag")}>List of diagnostic </li>
+
+          </ul>
+        </li>
+
         <li onClick={() => navigate("/brain-tumor-detector")}><FaClock className="icon" /> Tumor detector</li>
 
       </ul>

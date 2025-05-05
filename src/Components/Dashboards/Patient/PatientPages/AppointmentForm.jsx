@@ -194,7 +194,10 @@ useEffect(() => {
                     <select name="doctor"  className="consult-docotrs" value={formData.doctor} onChange={handleChange} required>
                        <option value="">Select Doctor</option>
                            {doctors.map((doc) => (
-                       <option key={doc._id} value={`${doc.name} ${doc.lastName}`}>
+                       <option key={doc._id}
+                        //value={`${doc.name} ${doc.lastName}`}
+                        value={doc._id}
+                        >
                             {doc.name} {doc.lastName}
                       </option>
                         ))}

@@ -40,7 +40,7 @@ const DashboardPatient = () => {
         <div className="first-section">
         <h2>Welcome to your dashboard</h2>
 
-        <MedicalHistory /> 
+       <MedicalHistory /> 
 
         <div className="calendar-container">
         <FullCalendar

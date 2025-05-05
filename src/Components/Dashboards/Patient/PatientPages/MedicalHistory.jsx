@@ -71,7 +71,7 @@ const MedicalHistory = () => {
         <tbody>
           {appointments.map((appointment) => (
             <tr key={appointment._id}>
-              <td>{appointment.doctor}</td>
+              <td>{appointment.doctor?.name} {appointment.doctor?.lastName}</td>
               <td>{appointment.treatment}</td>
               <td>{appointment.date}</td>
               <td>

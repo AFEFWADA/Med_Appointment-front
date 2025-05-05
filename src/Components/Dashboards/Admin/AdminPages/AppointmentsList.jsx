@@ -90,7 +90,9 @@ const AppointmentsList = () => {
                     <tr key={appointment._id}>
                       <td>{index + 1}</td>
                       <td>{appointment.name} {appointment.lastName}</td>
-                      <td>{appointment.doctor}</td>
+                     
+                      <td>{appointment.doctor?.name} {appointment.doctor?.lastName}</td>
+
                       <td>{appointment.treatment}</td>
                       <td>{appointment.mobile}</td>
                       <td>{appointment.email}</td>
