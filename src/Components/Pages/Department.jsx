@@ -5,7 +5,7 @@ const departments = [
   { name: "Dentistry", icon: "🦷",  },
   { name: "Cardiology", icon: "❤️" },
   { name: "ENT Specialists", icon: "👂" },
-  { name: "Astrology", icon: "🔭" }, // Correction: Peut-être Orthopédie à la place ?
+  { name: "Astrology", icon: "🔭" }, 
   { name: "Neuroanatomy", icon: "🧠" , active: true},
   { name: "Blood Screening", icon: "🦠" }
 ];

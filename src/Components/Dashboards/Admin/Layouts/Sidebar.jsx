@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { 
-  FaTachometerAlt, FaUserMd, FaUsers, FaClipboardList, 
-  FaCalendarCheck, FaClock, FaBuilding, FaAngleDown 
+  FaTachometerAlt, FaUserMd, FaUsers,  
+  FaCalendarCheck, FaClock,  FaAngleDown 
 } from "react-icons/fa";
 import "./Sidebar.css";
-
+import { FaComments } from "react-icons/fa";
 const Sidebar = () => {
   const navigate = useNavigate();
   const [openSubmenu, setOpenSubmenu] = useState(null);
@@ -49,6 +49,9 @@ const Sidebar = () => {
 
         <li onClick={() => navigate("/appointments")}><FaCalendarCheck className="icon" /> Appointments</li>
         <li onClick={() => navigate("/schedule")}><FaClock className="icon" /> Doctor Schedule</li>
+        <li onClick={() => window.open("http://localhost:5173/", "_blank")}>
+                   <FaComments className="icon" /> Chat
+                 </li>
        
       </ul>
     </div>

@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 const DiagnosticForm = () => {
   const { user } = useAuth();
   const [patientName, setPatientName] = useState("");
+  const [email, setEmail] = useState("");
   const [content, setContent] = useState("");
 
   const handleSubmit = async (e) => {
@@ -20,8 +21,8 @@ const DiagnosticForm = () => {
       return;
     }
 
-    if (!patientName || !content) {
-      toast.error("Patient name and content are required.");
+    if (!patientName || !email || !content) {
+      toast.error("All fields are required.");
       return;
     }
 
@@ -33,6 +34,7 @@ const DiagnosticForm = () => {
         {
           doctorId: user._id,
           patientName,
+          email,
           diagnosis: content,
         },
         {
@@ -42,8 +44,9 @@ const DiagnosticForm = () => {
         }
       );
 
-      toast.success(" Diagnostic sent successfully!");
+      toast.success("✅ Diagnostic sent successfully!");
       setPatientName("");
+      setEmail("");
       setContent("");
     } catch (error) {
       console.error("Error sending diagnostic:", error);
@@ -71,7 +74,20 @@ const DiagnosticForm = () => {
                   id="patientName"
                   value={patientName}
                   onChange={(e) => setPatientName(e.target.value)}
-                  placeholder="Enter patient full name "
+                  placeholder="Enter patient full name"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email">Patient Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter patient email"
+                  required
                 />
               </div>
 
@@ -82,6 +98,7 @@ const DiagnosticForm = () => {
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
                   placeholder="Enter the diagnostic content"
+                  required
                 ></textarea>
               </div>
 

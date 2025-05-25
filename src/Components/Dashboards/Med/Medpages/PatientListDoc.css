@@ -21,5 +21,19 @@
   
   .appointment-table img {
     border-radius: 4px;
+  
   }
+
+  .delete-btn {
+    background: none;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .delete-btn:hover {
+    color: darkred;
+  }
+  
   

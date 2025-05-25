@@ -141,15 +141,15 @@ function Login() {
                     <input type="radio" name="role" value="doctor" checked={formData.role === "doctor"} onChange={handleChange} required />
                     Doctor
                   </label>
-                  <label>
+                { /* <label>
                     <input type="radio" name="role" value="admin" checked={formData.role === "admin"} onChange={handleChange} required />
                     Admin
-                  </label>
+                  </label> */}
                 </div>
 
                 <button type="submit" className="submit-button">Register</button>
                 <p className="switch-text">
-                  Already have an account? <span onClick={() => setIsLogin(true)}>Login</span>
+                  Already have an account? <span onClick={() => setIsLogin(true) }>Login</span>
                 </p>
               </div>
             )}

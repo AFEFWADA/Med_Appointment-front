@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { 
   FaTachometerAlt, FaUsers, 
-  FaCalendarCheck, FaClock, FaAngleDown 
+   FaClock, FaAngleDown 
 } from "react-icons/fa";
 import "./Side.css";
-
+import { FaComments } from "react-icons/fa";
 const Side = () => {
   const navigate = useNavigate();
   const [openSubmenu, setOpenSubmenu] = useState(null);
@@ -60,6 +60,10 @@ const Side = () => {
         </li>
 
         <li onClick={() => navigate("/brain-tumor-detector")}><FaClock className="icon" /> Tumor detector</li>
+         <li onClick={() => window.open("http://localhost:5173/", "_blank")}>
+                    <FaComments className="icon" /> Chat
+                  </li>
+        
 
       </ul>
     </div>

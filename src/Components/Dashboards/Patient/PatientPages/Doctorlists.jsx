@@ -5,9 +5,9 @@ import Sidebar from "../../../Dashboards/Patient/Layouts/Sidebar";
 import "./Doctorlists.css";
 
 const initialDoctors = [
-  { id: 1, name: "John Doe", age: 45, dob: "1978-06-15", email: "johndoe@example.com", mobile: "123-456-7890", speciality: "Cardiology", place: "New York Hospital" },
-  { id: 2, name: "Jane Smith", age: 38, dob: "1985-09-22", email: "janesmith@example.com", mobile: "987-654-3210", speciality: "Neurology", place: "Los Angeles Clinic" },
-  { id: 3, name: "Michael Johnson", age: 50, dob: "1973-03-10", email: "michaelj@example.com", mobile: "555-123-4567", speciality: "Pediatrics", place: "Chicago Medical Center" },
+  { id: 1, name: "coulson shield",  dob: "1978-06-15", email: "coulson@gmail.com",  speciality: "Neurology" },
+  { id: 2, name: "Jane Smith",  dob: "1985-09-22", email: "janesmith@example.com",  speciality: "Neurology" },
+  { id: 3, name: "Michael Johnson", dob: "1973-03-10", email: "michaelj@example.com",  speciality: "Neurology" },
 ];
 
 const DoctorsLists = () => {
@@ -73,12 +73,9 @@ const DoctorsLists = () => {
                 <tr>
                   <th>ID</th>
                   <th>Name</th>
-                  <th>Age</th>
                   <th>Date of Birth</th>
                   <th>Email</th>
-                  <th>Mobile</th>
                   <th>Speciality</th>
-                  <th>Place</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -88,12 +85,9 @@ const DoctorsLists = () => {
                     <tr key={doctor.id}>
                       <td>{doctor.id}</td>
                       <td>{doctor.name}</td>
-                      <td>{doctor.age}</td>
                       <td>{doctor.dob}</td>
                       <td>{doctor.email}</td>
-                      <td>{doctor.mobile}</td>
                       <td>{doctor.speciality}</td>
-                      <td>{doctor.place}</td>
                       <td className="actions">
                         <button className="edit-btn" onClick={() => handleEdit(doctor)}>
                           <FaEdit />
@@ -117,12 +111,9 @@ const DoctorsLists = () => {
             <div className="edit-form-containers">
               <h3>Edit Doctor</h3>
               <input type="text" name="name" value={editingDoctor.name} onChange={handleChange} placeholder="Name" />
-              <input type="number" name="age" value={editingDoctor.age} onChange={handleChange} placeholder="Age" />
               <input type="date" name="dob" value={editingDoctor.dob} onChange={handleChange} placeholder="Date of Birth" />
               <input type="email" name="email" value={editingDoctor.email} onChange={handleChange} placeholder="Email" />
-              <input type="text" name="mobile" value={editingDoctor.mobile} onChange={handleChange} placeholder="Mobile" />
               <input type="text" name="speciality" value={editingDoctor.speciality} onChange={handleChange} placeholder="Speciality" />
-              <input type="text" name="place" value={editingDoctor.place} onChange={handleChange} placeholder="Place" />
               
               <div className="edit-buttons">
                 <button className="save-btn" onClick={handleSave}>

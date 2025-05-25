@@ -217,6 +217,7 @@ const PatientListDoc = () => {
                   <th>Notes</th>
                   <th>Time</th>
                   <th>Images</th>
+                  <th>Delete</th> {/* New column */}
                 </tr>
               </thead>
               <tbody>
@@ -236,6 +237,15 @@ const PatientListDoc = () => {
                         title="View Images"
                       >
                         <FaImages />
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        onClick={() => handleDelete(appointment._id)}
+                        className="delete-btn"
+                        title="Delete Appointment"
+                      >
+                        x
                       </button>
                     </td>
                   </tr>

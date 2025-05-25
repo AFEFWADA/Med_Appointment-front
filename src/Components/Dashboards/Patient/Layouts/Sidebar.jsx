@@ -5,6 +5,8 @@ import {
   FaClock, FaAngleDown ,FaCog
 } from "react-icons/fa";
 import "./Sidebar.css";
+import { FaComments } from "react-icons/fa";
+
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -68,7 +70,11 @@ const Sidebar = () => {
           >
             <FaCog className="icon" /> Setting 
           </li>
-          
+
+           <li onClick={() => window.open("http://localhost:5173/", "_blank")}>
+            <FaComments className="icon" /> Chat
+          </li>
+
         </ul>
       </div>
     </div>
